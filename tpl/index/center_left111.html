@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.left{z-index:999; height:2000px; width:200px;  background:#EFF7FE; float:left; border:1px #cbcbcc solid; }
+img{ border:none}
+.touxiang{ width:106px; height:106px; margin:0 auto; margin-top:10px; border:1px solid #cbcbcc; background:#FFFFFF; padding:5px; margin-bottom:20px;}
+.touxiang img{width:106px; height:106px;}
+.left_menu{ width:160px; height:36px; font-size:14px; line-height:36px; text-align:right; background:url(/public/index/images/right_menu.jpg) left no-repeat; margin-left:41px;  }
+.left_menu:hover{background:url(/public/index/images/right_menu_hover.jpg);}
+.left_menu a{ color:#00477b; margin-right:40px;}
+.user_name{font-size:16px;color:#0099FF;text-align:center; margin-bottom:20px; line-height:20px;}
+.shenfen{ font-size:12px;color:#FF0000}
+.xiaoxi{ font-size:12px; margin-left:20px;}
+.xiaoxi a{ color:#999}
+.sup{ vertical-align:super; color:#FF0000}
+-->
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#fabu').click(function(){
+        $(self.parent.frames["mainFrame"].$('.fabu').slideToggle('slow'));
+})
+});
+</script>
+</head>
+
+<body>
+<div class="left">
+    <div class="touxiang"><img src="<{$user_info.member_face}>" /></div>
+	<div class="user_name"><{$user_info.member_nickname}><span class="xiaoxi"><a href="<{spUrl c=xiaoxi a=index u=$uid}>" target="mainFrame">[消息]</a><span class="sup">6</span></span>
+	
+  <div class="shenfen"><{foreach from=$user_info.mrole item=role}>(<{$role.member_role}>)<br><{/foreach}></div></div>
+    <!--<div class="left_menu"><a href="<{spUrl c=center a=finance}>" target="mainFrame">我的财务</a></div>-->
+	<div class="left_menu"><a href="#" id='fabu'>信息发布</a></div>
+	<{foreach from=$user_info.mrole item=role}>
+		<{if $role.member_role == '合作伙伴'}>
+    	<div class="left_menu"><a href="<{spUrl c=author a=myworks}>" target="mainFrame">编辑作品</a></div>
+		<{/if}>
+		<{if $role.member_role == 'QQ群主'}>
+			<div class="left_menu"><a href="<{spUrl c=qunmanage a=index s=$user_info.user_id}>" target="mainFrame">QQ群管理</a></div>
+		<{/if}>
+		<{if $role.member_role == '网络达人'}>
+    		<div class="left_menu"><a href="<{spUrl c=center a=viewdingyue}>" target="mainFrame">查看订阅者</a></div>
+		<{/if}>
+    <{/foreach}>	
+    <!--<div class="left_menu"><a href="#">我的下载</a></div>-->
+    <!--<div class="left_menu"><a href="<{spUrl c=tianya a=bind_ty}>" target="mainFrame" title="请先将天涯账号设置为自动登陆">查看天涯帖子</a></div>-->
+    <div class="left_menu"><a href="<{spUrl c=center a=volunteer}>" target='mainFrame' title='工作内容：帮作者整理QQ精选'>申请志愿者</a></div>
+    <div class="left_menu"><a href="<{spUrl c=center a=user_set}>" target='mainFrame'>设 置</a></div>
+</div>
+</body>
+</html>

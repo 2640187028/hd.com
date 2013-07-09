@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>修改封面</title>
+<style type="text/css">
+<!--
+*{margin:0; padding:0; list-style:none; text-decoration:none}
+#main{ padding:30px; padding-top:10px;}
+.left{ width:10%; float:left}
+.img{ width:105px; height:105px; border:1px solid #e6e6e6;text-align:center; background:#f7f7f7; margin:0 auto}
+.img img{ width:74px; height:98px; margin-top:4px;}
+.title{font-size:14px; width:105px; text-align:center; margin:0 auto; margin-top:10px;}
+.title a{color:#000000}
+.bc{ font-size:14px; color:#a2a2a2; margin-top:10px; margin:0 auto; text-align:center; margin-left:-10px; width:130px; color:#4794c2}
+.bc a{color:#4794c2}
+.right{ margin-left:30px; width:85%; float:left; }
+.clr{ clear:both; width:0px; height:0px;}
+.menu{ padding-left:0px; height:31px; width:500px; margin:0 auto}
+.menu ul li {  float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+.menu ul li.bg{ background:#c0cddd}
+.xslist{ padding-left:40px;}
+.none{ display:none}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:14px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+
+/*小说列表*/
+.fjtitle{ padding-left:15px; font-size:14px; font-weight:bold; color:#000000;margin:30px 0; background:url(/public/index/images/fj.gif) left center no-repeat}
+.xslist ul li{ font-size:14px; float:left; margin-right:20px;min-height:70px; line-height:20px;width:170px;  }
+.xslist ul li a{ color:#000000; text-decoration:underline; font-size:14px;}
+.boot{ height:1px; border-bottom:1px solid #e8e8ea; }
+
+
+.infobox{ width:98%; margin:0 auto; border:1px solid #e6e6e6; margin-top:10px;background:#fff}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infobox:hover{border:1px solid #FF9900; cursor:default}
+.rdtx{ margin:0 auto; width:50px; height:50px;}
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin:0 auto; margin-top:10px; text-align:center; line-height:22px; }
+.dingyuebox a{color:#FFFFFF}
+.inforight{ width:98%;}
+.darenname{ font-size:14px;margin-bottom:10px; margin-top:10px;}
+.wangyoutitle{ color:#CC9900}
+.zuozhetitle{ color:#6699FF}
+.infocontent{ line-height:20px; color:#462c00; text-align:left;  text-indent:2em}
+.infoshuxin{ line-height:20px; border-top:1px #CCCCCC solid; margin-top:10px;}
+.infohui{ color:#666; margin-left:10px; margin-right:10px;}
+.infotime{ margin-left:10px}
+.infoshuxinhuifu{line-height:20px;  margin-top:10px;}
+.huifubox{ height:35px; position:relative}
+.huifubox .huifu{ height:35px; width:90%;resize:none; text-align:left; margin-left:-100px;}
+.hftijiao{ height:35px; position:absolute; right:25px;}
+.hftijiao input{height:35px; width:50px;}
+.wytwnr{ float:left; text-indent:2em; width:100%;}
+.wyhf{ float:left;width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin-top:10px; margin-left:20px; text-align:center; line-height:22px; }
+.wyhf a{color:#FFFFFF; display:block}
+.wbxz{width:150px;margin:0 auto;font-size:14px;color:#06c;}
+.wbxz a:hover{color:red;}
+#qqltjx{padding:20px;background-color:white;border:1px solid #456;width:50%;display:none;position:absolute;top:180px;left:22%;}
+#qqltjx input,#sub_close{width:140px;height:20px;}
+.l_ltjx{line-height:16px;font-size:14px;}
+#sub_add{margin-top:20px;margin-left:20%;}
+#simple_ueditor{width:100%;margin-right:0}
+.bt{ position:absolute; line-height:90px; text-align:right; width:100px; left:-30px;}
+.set input{ margin-left:149px; border:1px solid #e6e6e6; width:215px; height:30px; line-height:30px; margin-top:30px; padding-left:5px; }
+.set select{margin-left:149px; border:1px solid #e6e6e6;  margin-top:30px;}
+.div{ margin: 0 auto; width:500px; margin-top:30px; position:relative}
+.div p{ margin:10px;margin-left:80px; }
+#imgPreview{ margin:0 auto;width:200px;height:150px;}
+input.subboom{  width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript" src="/public/simple_ueditor/editor_config.js"></script>
+<script type="text/javascript" src="/public/simple_ueditor/editor_all_min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+$(".menu ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$("#main .div:eq("+i+")").show().siblings("#main .div").hide();
+		})
+	 })
+$("input[type='file']").change(function(){
+        document.face.path.value=this.value;
+        $('#imgPreview').css('display','block');
+        previewImage(this);
+    });
+});
+function previewImage(file)
+{
+    var porImg  = $('#preview');
+    if (file["files"] && file["files"][0])
+    {
+        var reader = new FileReader();
+        reader.onload = function(evt){
+            porImg.attr({src : evt.target.result});
+        }
+        reader.readAsDataURL(file.files[0]);
+    }else{
+    	//获取ie的本地图片路径
+        var proIeImageDom = document.createElement("div");
+        $(proIeImageDom).attr({"id":"preview"});
+        porImg.parent().prepend(proIeImageDom);
+        porImg.remove();
+        file.select();
+        path = document.selection.createRange().text;
+        //ie建的一个DIV层
+        document.getElementById("imgPreview").style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")";
+    }
+}
+
+
+</script>
+
+</head>
+
+<body>
+<{include file='fabu.html'}>
+<div id="main">
+		<div class="div">
+			<p>图片预览:</p>
+        <div id='imgPreview'>
+		<img id="preview" src='<{$xsimg}>' width='150px' height='160px'>
+        </div>
+		<form name="face" action="<{spUrl c=author a=change_fm_do}>" enctype='multipart/form-data' method='post'>
+			<div class="set"><input type="file" id="picpath" name="pic_face" /></div>
+			<div class="set"><input type='hidden' name="path" readonly /></div>
+            
+            <div class="set"><input  class='subboom but' type='submit' value='更 换' /></div>
+        </form>
+		</div>
+	</div>
+
+</body></html>

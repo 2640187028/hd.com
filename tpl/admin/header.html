@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<{$CSS_PATH}>skin.css" rel="stylesheet" type="text/css" />
+<link href="<{$CSS_PATH}>reset.css" rel="stylesheet" type="text/css">
+<link href="<{$CSS_PATH}>zh-cn-system.css" rel="stylesheet" type="text/css">
+<link href="<{$CSS_PATH}>table_form.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='<{$JS_PATH}>jquery.js'></script>
+<script type='text/javascript' src='<{$JS_PATH}>admin_common.js'></script>
+<script type='text/javascript' src='<{$JS_PATH}>artDialog.js?skin=blue'></script>
+<script type='text/javascript' src="<{$JS_PATH}>iframeTools.js"></script>
+<script type='text/javascript'>
+(function (config) {
+    config['lock'] = true;
+    config['fixed'] = true;
+    config['okVal'] = 'Ok';
+    config['cancelVal'] = 'Cancel';
+})(art.dialog.defaults);
+//在弹出窗口载入另外页面的通用函数
+function com_dialog_open(url,dialog_title,dialog_width,dialog_height)
+{
+	if(typeof(dialog_width) == 'undefined')
+	{
+		var dialog_width = "50%";	//默认宽度
+	}
+	if(typeof(dialog_height) == 'undefined')
+	{
+		var dialog_height = "70%";//默认高度
+	}
+	art.dialog.open(url,{width:dialog_width,height:dialog_height,lock:true,fixed:true,drag:false,resize:false,title:dialog_title})
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #EEF2FB;
+}
+.addem{
+	color:white;
+	background-color:#498CD0;
+	display:block;
+	width:80px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+}
+html{_overflow-y:scroll}
+-->
+</style>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>内容中心</title>
+<style>
+body{}
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.clr{clear:both;margin:0;padding:0;height:0;font- size:0}
+img{ border:none}
+ul{ list-style:none}
+.main{}
+.zx{ width:99%; float:left; padding-bottom:30px;}
+.img{ padding:5px; border:1px solid #cdcdd0; width:130px; height:169px; float:left}
+.img:hover {border:1px solid #006600;}
+.img img{ width:130px; height:169px; }
+.list{ margin:0 auto; margin-top:20px;background:#fff;   width:90%; padding-top:10px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:12px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+.fblx{ float:left; margin-left:30px; font-size:12px; line-height:35px;}
+
+.block{ width:94%; height:200px; border:1px solid #cbcbcc; margin:0 auto; margin-top:20px; }
+.bpad{ padding:10px;position:relative}
+.xslisttltie{ margin:0 auto; text-align:center; font-size:18px; color:#009900; font-weight:bold; margin-top:30px; width:99%; height:40px;}
+.hdk{border-bottom:1px solid #97CAFD; height:30px; width:99%; margin:0 auto; background:#fff }
+
+/*滑动门*/
+*{ margin:0; padding:0; font-size:12px;}
+.hdk ul{ height:40px;}
+.hdk ul li.hdkli{ font-size:16px; list-style:none; float:left;cursor:pointer; width:100px; height:30px; line-height:30px; text-align:center; color:#666}
+.hdk ul li.hdkli.bg{ background-color:#CDE6FE; color:#333; border:1px solid  #97CAFD; border-bottom:none}
+.hdk .div{  text-align:center; width:100%;}
+.hdk .none{ display:none}
+.dw{}
+/*分卷*/
+.fenjuan{  width:90%; margin:0 auto; padding-left:10px; background:#fff; height:auto;}
+.fjtitle{ line-height:30px; font-weight:bold; color:#993300; margin-top:30px; font-size:16px;}
+.fenjuanbj1{border-bottom:1px #c5c3c1 solid; height:1px; padding-top:8px;}
+.fenjuanbj{ border-bottom:1px #e7e5e2 solid;height:10px;}
+.fjzx{ width:9px; height:7px; margin:0 auto; background:url(/public/index/images/fenjuan.jpg) no-repeat}
+.fj{ margin-top:10px;background:#009933; clear:both; }
+.fj ul{background:#fff}
+.fj ul li{ background:#fff}
+.fj ul li{ float:left; width:260px; text-align:left; margin-left:15px; height:auto; min-height:50px; line-height:20px;}
+.fj ul li a{ color:#333; font-size:14px; }
+.fj ul li a:hover{ color:#FF9900}
+
+.infobox{ width:98%; margin:0 auto; border:1px solid #e6e6e6; margin-top:10px;background:#fff}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infobox:hover{border:1px solid #FF9900; cursor:default}
+.rdtx{ margin:0 auto; width:50px; height:50px;}
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin:0 auto; margin-top:10px; text-align:center; line-height:22px; }
+.dingyuebox a{color:#FFFFFF}
+.inforight{ width:98%;}
+.darenname{ font-size:12px;margin-bottom:10px; margin-top:10px;}
+.wangyoutitle{ color:#CC9900}
+.zuozhetitle{ color:#6699FF}
+.infocontent{ line-height:20px; color:#462c00; text-align:left;  text-indent:2em}
+.infoshuxin{ line-height:20px; border-top:1px #CCCCCC solid; margin-top:10px;}
+.infohui{ color:#666; margin-left:10px; margin-right:10px;}
+.infotime{ margin-left:10px}
+.infoshuxinhuifu{line-height:20px;  margin-top:10px;}
+.huifubox{ height:35px; position:relative}
+.huifubox .huifu{ height:35px; width:90%;resize:none; text-align:left; margin-left:-100px;}
+.hftijiao{ height:35px; position:absolute; right:25px;}
+.hftijiao input{height:35px; width:50px;}
+.wytwnr{ float:left; text-indent:2em; width:100%;}
+.wyhf{ float:left;width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin-top:10px; margin-left:20px; text-align:center; line-height:22px; }
+.wyhf a{color:#FFFFFF; display:block}
+.wbxz{width:150px;margin:0 auto;font-size:14px;color:#06c;}
+.wbxz a:hover{color:red;}
+#qqltjx{padding:20px;background-color:white;border:1px solid #456;width:50%;display:none;position:absolute;top:180px;left:22%;}
+#qqltjx input,#sub_close{width:140px;height:20px;}
+.l_ltjx{line-height:16px;font-size:16px;}
+#sub_add{margin-top:20px;margin-left:20%;}
+#simple_ueditor{width:100%;margin-right:0}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript" src="/public/simple_ueditor/editor_config.js"></script>
+<script type="text/javascript" src="/public/simple_ueditor/editor_all_min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".hdk ul li").each(function(i){
+var height = $('.zx').height();
+	$('.main').css('height',height+30);
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".hdk .div:eq("+i+")").show().siblings(".hdk .div").hide();
+		})
+	 })
+$(".cjhfbox").each(function(i){	 
+		$(this).click(function(){
+	$(".infoshuxinhuifu:eq("+i+")").slideToggle('fast');
+		})
+	})
+ $('#v_addnew').click(function(){
+    $('#qqltjx').slideToggle('slow');       
+ })
+ $('#sub_close').click(function(){
+    $('#qqltjx').slideUp('slow');
+ })
+});
+
+</script>
+
+</head>
+
+<body>
+<div class="main">
+<{include file='fabu.html'}>
+	<div class="zx">
+					<div class="list">
+					<div class="xslisttltie"><{$xs_name}></div>
+                    <div class="wbxz">完本下载：<a href='#'>[word]</a><a href='#'>[txt]</a></div>
+					<div class="hdk">
+						<ul><li class="hdkli bg">正文列表</li><li class="hdkli">回音壁</li><!--<li class="hdkli">评论集</li>--><li class="hdkli">QQ群精选</li></ul>
+							<div class="clr"></div>
+								<div class="div dw">
+                                <{foreach from=$parent item=par}>
+								<div class="clr"></div>
+									<div class="fenjuan">
+										<div class="fjtitle"><{$par[1]}></div>
+										<div class="fenjuanbj">
+											<div class="fenjuanbj1">
+												<div class="fjzx"></div>
+												</div>
+														
+										</div>
+										<div class="fj">
+											<ul>
+                                            <{foreach from=$result item=re}>
+                                                <{if $re['parent_id'] == $par[0]}>
+												<li><a href="<{spUrl c=center a=xscontent contentid=$re['id']}>"><{$re['list_name']}></a></li>
+							                    <{/if}>
+                                            <{/foreach}>
+                                            </ul>
+										</div>
+									</div>
+                                <{/foreach}>
+								</div>
+								<div class="div none">
+								<{foreach from=$comments item=com}>
+												<{if $com.view == 1}>
+												<{if $com.reply_id==0}>
+		                                     <div class="infobox">
+												<div class="rdpanding">
+												
+													<div class="inforight">
+														<div class="darenname wangyoutitle">网友: <{$com.user.member_nickname}><span class="infotime"><{$com.post_time}></span> <span class="infohui">来自</span><span class="infofrom"><{$com.where_from}></span></div>
+														<div class="infocontent"><{$com.c_content}></div>
+														<{foreach from=$comments item=red}>
+														<{if $red.reply_id>0}>
+															<{if $red.reply_id == $com.c_id}>
+														<div class="infoshuxin">
+															<div class="darenname zuozhetitle">作者:<{$red.user.member_nickname}><span class="infotime"><{$red.post_time}></span></div>
+															<div class="infocontent"><{$red.c_content}></div>
+														</div>
+															<{/if}>
+														<{/if}>
+														
+														<{/foreach}>
+													</div>
+												</div>
+												</div>
+												<{/if}>
+												<{/if}>
+												<{/foreach}>								
+										</div>
+								
+								<div class="div none">
+                                    <{if $is_volunt == '1'}>
+                                        <button id='v_addnew'>增加聊天精选</button>
+                                    <{/if}>
+								<{foreach from=$qqcomments item=qqcc}>
+									
+									<div class="infobox">
+												<div class="rdpanding">
+
+													<div class="inforight">
+														<div class="darenname wangyoutitle">由网友: <{$qqcc.qqc_name}>&nbsp;&nbsp;整理<span class="infotime"> <{$qqcc.qqc_posttime}></span> <span class="infohui">来自</span><span class="infofrom">群号：<{$qqcc.qqc_qunid}></span></div>
+														<div class="infocontent"><div class="wytwnr"><{$qqcc.qqc_content}></div>
+														</div>
+														<div class="clr"></div>
+														
+													</div>
+												</div>
+												</div>	
+									<{/foreach}>
+												
+									</div>
+					</div>
+				</div>
+				
+
+			</div>
+</div>
+<div id='qqltjx'>
+    <form action='<{spUrl c=center a=add_ltjx}>' method='post'>
+        <input type='hidden' name='xs_id' value='<{$xs_id}>' />
+        <span class='l_ltjx'>QQ群号：</span><input type='text' name='qqc_qunid' /><br /><br />
+        <span class='l_ltjx'>精选内容：</span><br /><br /><script type="text/plain" id="simple_ueditor" name='qqc_content'></script>
+            <script type="text/javascript">
+                UE.getEditor('simple_ueditor')
+            </script> 
+        <input type='submit' id='sub_add' value='增加' />
+        <input type='button' id='sub_close' value='关闭' />
+    </form>
+</div>
+</body></html>

@@ -1,0 +1,159 @@
+<{include file='header.html'}>
+<style type='text/css'>
+body{
+    background-color:white;
+}
+</style>
+<script type='text/javascript'>
+$(document).ready(function(){
+    function ajax_post(name,post_value)
+    {
+        var tip = '#'+name+'_Tip';
+        var input_name = '#'+name;
+        $.post('<{spUrl c=member a=add_ajax}>',{'name':name,'post_value':post_value},function(return_val){ 
+            if(return_val == 'yes')
+            {
+                $(tip).html('输入正确').removeClass('onError onShow').addClass('onCorrect');
+                $(input_name).removeClass('checkNo').addClass('checkOk');
+            }else{
+                $(tip).html(return_val).removeClass('onCorrect onShow').addClass('onError');
+                $(input_name).removeClass('checkOk').addClass('checkNo');
+            }
+            check_submit();
+        })
+    }
+    function check_submit()
+    {       
+        var check_num = $('input:text,input:password').size();
+        var check_ok_num = $('.checkOk').size();
+        if(check_num == check_ok_num)
+        {
+            $('#submit').removeAttr('disabled');
+        }else{
+            $('#submit').attr('disabled','disabled');
+        }
+    }
+    $('#admin_userid').blur(function(){
+          ajax_post('admin_userid',$(this).val());
+    })
+    $('#member_nickname').blur(function(){
+          ajax_post('member_nickname',$(this).val());
+    })
+    $('#member_pwd').blur(function(){
+          ajax_post('member_pwd',$(this).val());
+    })
+    $('#pwdconfirm').blur(function(){
+        var tip = '#pwdconfirm_Tip';
+        if($(this).val() == '')
+        {
+            $(tip).html('密码不得为空').removeClass('onCorrect onShow').addClass('onError');
+            $('#pwdconfirm').removeClass('checkOk').addClass('checkNo');
+        }else if($(this).val() === $('#member_pwd').val())
+        {
+            $(tip).html('输入正确').removeClass('onError onShow').addClass('onCorrect');
+            $('#pwdconfirm').removeClass('checkNo').addClass('checkOk');
+        }else{
+            $(tip).html('两次密码输入不一致').removeClass('onCorrect onShow').addClass('onError');
+            $('#pwdconfirm').removeClass('checkOk').addClass('checkNo');
+        }
+        check_submit();
+    })
+    $('#member_email').blur(function(){
+          ajax_post('member_email',$(this).val());
+    })
+    $('#silver_num').blur(function(){
+          ajax_post('silver_num',$(this).val());
+    })
+    $('#copper_num').blur(function(){
+          ajax_post('copper_num',$(this).val());
+    })
+})
+</script>
+</head>
+<body>
+<div class="pad-10">
+<div class="common-form">
+<form name="member_add" action="<{spUrl c=member a=add_do}>" method="post" id="myform">
+<fieldset>
+	<legend>基本信息</legend>
+	<table class="table_form" width="100%">
+		<tbody>
+        <tr>
+			<td width="80">用户ID</td> 
+			<td><input name="admin_userid" class="input-text" id="admin_userid" type="text" maxlength='11'>
+            <div class="onShow" id="admin_userid_Tip">用户ID为不大于11位的整数</div>
+            </td>
+		</tr>
+        <tr>
+			<td width="80">昵称</td> 
+			<td><input name="member_nickname" class="input-text" id="member_nickname" type="text" maxlength='10'>
+            <div class="onShow" id="member_nickname_Tip">用户昵称为2-10个中英文字符</div>
+            </td>
+		</tr>
+		<tr>
+			<td>密码</td> 
+			<td><input name="member_pwd" class="input-text" maxlength='20' id="member_pwd" type="password" alt=''>
+            <div class="onShow" id="member_pwd_Tip">密码为英文、数字~!@#$%^&*()_+字符(6-20个)</div></td>
+		</tr>
+		<tr>
+			<td>确认密码</td> 
+			<td><input name="pwdconfirm" class="input-text" maxlength='20' id="pwdconfirm" type="password">
+            <div class="onShow" id="pwdconfirm_Tip">重新输入一次密码</div></td>
+		</tr>
+		<tr>
+			<td>邮箱</td>
+			<td>
+			<input name="member_email" class="input-text" id="member_email" size="30" type="text">
+			<div class="onShow" id="member_email_Tip">邮箱地址</div></td>
+		</tr>
+		<tr>
+			<td>角色组</td>
+			<td>
+            <select multiple='multiple' name="role[]" style="width:90px;height:100px;">
+            <{foreach from=$result item=r_role}>
+                <{if $r_role.role_id == 1}>
+                    <option value="<{$r_role.role_id}>" selected="selected"><{$r_role.member_role}></option>
+                <{else if}>
+                    <option value="<{$r_role.role_id}>"><{$r_role.member_role}></option>              
+                <{/if}>
+            <{/foreach}>
+            </select>
+            <div class="onShow">按ctrl可以选择多种身份</div></td>			
+            </td>
+		</tr>
+        <tr>
+			<td>银币</td>
+			<td>
+                <input type='text' class='checkOk' id='silver_num' name='silver_num' value='0.00' />
+                <div class="onCorrect" id="silver_num_Tip">银币默认为0.00</div>
+            </td>
+		</tr>
+        <tr>
+			<td>铜币</td>
+			<td>
+                <input type='text' class='checkOk' id='copper_num' name='copper_num' value='0.00' />
+                <div class="onCorrect" id="copper_num_Tip">铜币默认为0.00</div>
+            </td>
+		</tr>
+        <tr>
+            <td>是否激活</td>
+            <td>
+            <select name='active'>
+                <option value='1' selected='selected'>激活</option>
+                <option value='0'>未激活</option>
+            </select>
+            </td>
+        </tr>       
+        <tr>
+        <td>
+        <input id='submit' type='submit' value='提交' disabled='disabled' /><input type='reset' value='重置' />
+        </td>
+        </tr>
+	</tbody></table>
+</fieldset>
+    
+</form>
+</div>
+</div>
+</body>
+</html>

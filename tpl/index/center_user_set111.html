@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>用户设置</title>
+<style type='text/css'>
+#nav{
+ width:80%;
+ height:350px;
+ margin:0 auto;
+ border:1px solid #CCCCCC;
+}
+#column a {
+ float:left;
+ width:98px;
+ font:bold 14px/30px Arial, Helvetica, sans-serif;
+ color:#000;
+ text-decoration:none;
+ text-align:center; background:#e7ecf2;
+  margin-right:10px;
+}
+#column a.bg{background:#c0cddd;}
+#contant {
+ width:100%;
+ height:280px;
+ overflow:hidden;
+}
+ul {
+ margin:0;
+ padding:0;
+ list-style-type:none;
+ padding:20px 0 0 20px;
+}
+ul form{
+    width:50%;
+    height:250px;
+}
+ul input,select{
+    margin:5px;
+    height:20px;
+}
+.but{
+    width:120px;
+    height:25px;
+    border:1px solid;
+}
+#old{width:30px;}
+#nickname{width:80px;}
+#location{width:200px;}
+.tip{color:red;font-weight:bold;}
+#pic_ajax{display:none;}
+#imgPreview{width:120px;height:120px;}
+
+.menu{ padding-left:0px; margin-bottom:30px; height:31px}
+.menu ul li {  float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+.menu ul li.bg{ background:#c0cddd}
+.menu ul li a{color:#6c635a; text-decoration:none}
+#change_info input{
+border:1px solid #e6e6e6;
+    width:220px;
+    font-size:14px;
+    height:25px;
+    line-height:25px;
+}
+#change_pwd input{
+border:1px solid #e6e6e6;
+    width:220px;
+    font-size:14px;
+    height:25px;
+    line-height:25px;
+}
+#change_face input{
+border:1px solid #e6e6e6;
+    width:220px;
+    font-size:14px;
+    height:25px;
+    line-height:25px;
+}
+#change_info select{border:1px solid #e6e6e6;}
+#change_info input { margin-left:80px;}
+#change_info input.subboom{  width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none}
+#change_pwd input.subboom{ width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none}
+#change_face input.subboom{ width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none}
+#change_info .bt{ width:800px; display:block; float:left}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript" src="/public/index/js/jquery.imgareaselect.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+$(".menu ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$("#main .div:eq("+i+")").show().siblings("#main .div").hide();
+		})
+	 })
+$("input[type='file']").change(function(){
+        document.face.path.value=this.value;
+        $('#imgPreview').css('display','block');
+        previewImage(this);
+    });
+});
+function previewImage(file)
+{
+    var porImg  = $('#preview');
+    if (file["files"] && file["files"][0])
+    {
+        var reader = new FileReader();
+        reader.onload = function(evt){
+            porImg.attr({src : evt.target.result});
+        }
+        reader.readAsDataURL(file.files[0]);
+    }else{
+    	//获取ie的本地图片路径
+        var proIeImageDom = document.createElement("div");
+        $(proIeImageDom).attr({"id":"preview"});
+        porImg.parent().prepend(proIeImageDom);
+        porImg.remove();
+        file.select();
+        path = document.selection.createRange().text;
+        //ie建的一个DIV层
+        document.getElementById("imgPreview").style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")";
+    }
+}
+
+</script>
+</head>
+<body>
+<div id="nav">
+  <div class="menu">
+			<ul>
+				<li class="bg"><a href="#change_info">基本信息</a></li>
+				<li><a href="#change_pwd">修改密码</a></li>
+				<li><a href="#change_face">上传头像</a></li>
+			</ul>
+		</div>
+  <div id="contant">
+    <ul id="change_info">
+        <form action='<{spUrl c=member a=change_info}>' method='post'>
+            <div><span class="bt">昵 称：</span><input id='nickname' name='nickname' type='text' value='<{$result.member_nickname}>'/><span class='tip'></span></div>
+          	<div><span class="bt">2222</span>
+				<select name='sex'>
+                    <option value='' <{if $result.member_sex == NULL}>selected='selected'<{/if}>>请选择</option>
+                    <option value='1' <{if $result.member_sex == '1'}>selected='selected'<{/if}>>男</option>
+                    <option value='0' <{if $result.member_sex == '0'}>selected='selected'<{/if}>>女</option>
+                  </select>
+			</div>
+            <div><span class="bt">年 龄：</span><input name='old' type='text' id='old' value='<{$result.member_age}>'/><span class='tip'></span></div>
+            <div><span class="bt">所在地：</span><input name='location' type='text' id='location' value='<{$result.member_location}>'/><br /><span class='tip'></span>
+			</div>
+            <div><input  class='subboom but' type='submit' value='修 改' />
+			</div>
+        </form>
+    </ul>
+    <ul id="change_pwd">
+        <form action='<{spUrl c=member a=change_pwd}>' method='post'>
+            原&nbsp;&nbsp;密&nbsp;&nbsp;码：<input id='pwd' name='old_pwd' type='password' /><br />
+            新&nbsp;&nbsp;密&nbsp;&nbsp;码：<input id='pwd' name='pwd' type='password' /><br />
+            确认密码：<input id='confirm_pwd' name='confirm_pwd' type='password' /><br />
+            <input class='subboom but' type='submit' value='修 改' /><br />
+        </form>
+    </ul>
+    <ul id="change_face">
+        <p>图片预览:</p>
+        <div id='imgPreview'>
+		<img id="preview" src='<{$result.member_face}>' width='120px' height='120px'>
+        </div>
+		<form name="face" action="<{spUrl c=member a=change_face}>" enctype='multipart/form-data' method='post'>
+			<input type="file" id="picpath" name="pic_face" />
+			<input type='hidden' name="path" readonly />
+            <br />
+            <input  class='subboom but' type='submit' value='更 换' />
+        </form>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

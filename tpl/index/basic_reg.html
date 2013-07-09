@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>用户注册</title>
+<style type='text/css'>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+img{ border:none}
+body{ font-size:14px;color:#333;  z-index:-1}
+.main{}
+.regbg{ margin:0 auto; width:98%; height:690px; background:#FFF; position:relative;}
+.pd{padding:10px;}
+.title{ height:40px; background:#f0f0f0;}
+.ztitle{ position:absolute; line-height:40px; font-size:14px; font-weight:bold; color:#333; left:20px;}
+.zhucbt{ height:40px; line-height:40px; margin:0 auto; text-align:center; color:#009900; font-size:14px;}
+.sb{ color:#d78e05}
+.content{ margin-top:10px;}
+.biaodan{ width:70%;  margin-top:30px; float:left}
+span.name{ height:30px; line-height:30px; margin-left:15px; width:70px; display:block; float:left; text-align:right }
+span.tishi{height:25px; line-height:25px; margin-left:10px; color:#f60;}
+.input{}
+.input input{ height:25px; width:30%; margin-left:15px;}
+.shuoming{  margin-left:40px; height:40px; line-height:40px;}
+.checkbox{ height:30px; margin-left:155px;}
+.xieyi{ line-height:30px; font-size:12px; margin-left:5px;}
+.xieyi a{ color:#0066cc}
+.submit{ margin-top:30px;}
+.submit input{ width:80px; height:40px; position:relative; left:250px;}
+.fenge{ float:left; margin-left:0px;width:15px; height:400px; background:url(/public/index/images/fenge.jpg)}
+.denglu{ float:left}
+.dlbt{ width:100%; text-align:center; font-weight:bold; margin-top:100px;}
+.denglubj{ background:url(/public/index/images/denglubj.jpg); width:106px; height:40px; margin:0 auto; margin-top:50px;}
+.denglubj a{ display:block; width:106px; height:40px; margin:0 auto; line-height:40px; text-align:center; color:#FFFFFF; font-weight:bold}
+span.checkok{ color:#009900}
+.input .bitian{  color:#FF6600; margin-left:20px; display:block; float:left; line-height:30px;}
+#yzm{width:60px;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+     click_userid = 1;
+     $('#user_id').focus();
+	 $('#user_id').click(function(){
+	   click_userid = 0;
+	 })
+	 $('#user_id').blur(function(){
+          ajax_post('user_id',$(this).val());
+		 
+    })
+	 $('#member_nickname').blur(function(){
+          ajax_post('member_nickname',$(this).val());
+		 
+    })
+	 $('#member_pwd').blur(function(){
+          ajax_post('member_pwd',$(this).val());
+		 
+    })
+	$('#comfirm_password').blur(function(){
+          var pass = $('#member_pwd').val();
+		  var compass = $('#comfirm_password').val();
+		  if(compass ==''){
+		  	$('#comfirm_password_Tip').text('密码不能为空').removeClass('checkok').addClass('checkno');
+		  }
+		  else if(pass===compass){
+		  	$('#comfirm_password_Tip').text('输入正确').removeClass('checkno').addClass('checkok');
+		  }
+		  else{
+		  	$('#comfirm_password_Tip').text('两次密码输入不一致').removeClass('checkok').addClass('checkno');
+		  }
+		 check_submit();
+    })
+	$('#member_email').blur(function(){
+          ajax_post('member_email',$(this).val());
+		  
+    })
+  	 $('#member_tjid').blur(function(){
+  	     if($(this).val() !== '')
+         {         
+            $('#member_tjid_Tip').addClass('tishi');
+            var reg = /^[0-9]{1,11}$/;
+            if(reg.exec($(this).val()))
+            {
+                if($(this).val() == $('#user_id').val())
+                {
+                     $('#member_tjid_Tip').html('不能与用户ID一样').removeClass('checkok').addClass('checkno');
+                }else{
+                    var tjval = $(this).val();
+                    var name = 'member_tjid';
+                    $.post('<{spUrl c=basic a=reg_ajax}>',{'name':name,'post_value':tjval},function(re_val){
+                        if(re_val == 'yes')
+                        {
+                           $('#member_tjid_Tip').html('输入正确').removeClass('checkno').addClass('checkok'); 
+                        }else{
+                           $('#member_tjid_Tip').html(re_val).removeClass('checkok').addClass('checkno');
+                        } 
+                    })       
+                }
+            }else{
+                $('#member_tjid_Tip').html('格式错误,请填写帐号ID').removeClass('checkok').addClass('checkno');
+            }      
+         }else{
+            $('#member_tjid_Tip').removeClass('tishi');
+            $('#member_tjid_Tip').html('');
+         }
+         check_submit(); 
+    })
+    $('#reg_agree').click(function(){
+        check_submit();
+    })
+    $('#yzm').click(function(){
+        if($('#yzm_Tip').hasClass('checkno'))
+        {
+            $(this).attr('value','');
+        }
+    })
+	$('#yzm').blur(function(){
+	   var yzm = $(this).val();
+       $.post('<{spUrl c=basic a=_vcode_ajax}>',{'name':yzm},function(return_val){
+        if(return_val == 'yes')
+        {
+            $('#yzm_Tip').html('输入正确').removeClass('checkno').addClass('checkok');
+        }else{
+            $('#yzm_Tip').html('验证码错误').removeClass('checkok').addClass('checkno');
+            $('#verifycode img').click();
+        }
+        check_submit();	
+       })	  
+    })	
+});
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});
+$("ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".div:eq("+i+")").show().siblings(".div").hide();
+		})
+	 })
+}
+ 
+function ajax_post(name,post_value)
+    {
+        var tip = '#'+name+'_Tip';
+        var input_name = '#'+name;
+        $.post('<{spUrl c=basic a=reg_ajax}>',{'name':name,'post_value':post_value},function(return_val){ 
+            if(return_val == 'yes')
+            {
+                $(tip).text('输入正确').removeClass('checkno').addClass('checkok');
+                
+            }else{
+                $(tip).text(return_val).removeClass('checkok').addClass('checkno');               
+            }
+  			check_submit();
+        })
+    }
+	function check_submit()
+    {       
+       var tishi = $('.tishi').size()-click_userid;
+        var check_ok_num = $('.checkok').size();
+        if(check_ok_num == tishi)
+        {
+            if($('#reg_agree').attr('checked') == 'checked')
+            {
+                $('#submit').removeAttr('disabled');
+            }else{
+                $('#submit').attr('disabled','disabled');
+            }
+        }else{
+            $('#submit').attr('disabled','disabled');
+        }
+    }	
+</script>
+
+</head>
+
+<body>
+<div class="main">
+	<div class="regbg">
+	<div class="pd">
+	<div class="title">
+		<div class="ztitle">注册会员</div>
+		<div class="zhucbt">注册成为<span class="sb">汇达</span>用户，立即体验不一样的精彩！注册仅需10秒。</div>
+	</div>
+	<div class="content">
+		<div class="biaodan">
+			<form action="<{spUrl c=basic a=regadd}>" method="post">
+				<div class="input"><span class="bitian">*</span><span class="name">用户ID：</span> <input name="user_id" id='user_id' type="text" value="<{$rand_num}>"><span class="tishi" id='user_id_Tip'></span></div><div class="shuoming">用户ID系统默认提供，可自行设置自己的ID号，必须为5-11位数字,不能以0开头</div>
+               <div class="input"><span class="bitian">*</span><span class="name">昵 称：</span> <input name="member_nickname" id='member_nickname' type="text"><span class="tishi" id='member_nickname_Tip'></span></div><div class="shuoming">帐号2-10位之间，可以为中文、英文</div>
+			   <div class="input"><span class="bitian">*</span><span class="name">创建密码：</span> <input name="member_pwd" id='member_pwd' type="password"><span class="tishi" id='member_pwd_Tip'></span></div><div class="shuoming">密码必须在 6-20 位之间</div>
+			   <div class="input"><span class="bitian">*</span><span class="name">确认密码：</span> <input name="comfirm_password" id='comfirm_password' type="password"><span class="tishi" id='comfirm_password_Tip'></span></div><div class="shuoming">再输入一次密码帐号</div>
+			   <div class="input"><span class="bitian">*</span><span class="name">电子邮箱：</span> <input name="member_email"  id='member_email' type="text"><span class="tishi" id='member_email_Tip'></span></div><div class="shuoming">请填写真实邮箱，用于找回密码。</div>
+			   <div class="input"><span class="bitian">&nbsp;</span><span class="name">伯乐ID：</span> <input id="member_tjid" name="member_tjid" type="text"><span class="tishi" id='member_tjid_Tip'></span></div><div class="shuoming">您的推荐人的用户ID(伯乐)</div>
+			  <div class="input"><span class="bitian">*</span><span class="name">验证码：</span><input id="yzm" name="yzm" type="text" /><span id='verifycode'><img src='<{spUrl c=basic a=_vcode}>' width='60px' height='20px' onClick="this.src='/index.php?c=basic&a=_vcode&'+Math.random()" /></span><span class="tishi" id='yzm_Tip'></span></div>
+              <div class="checkbox"> <input id='reg_agree' type="checkbox"><span class="xieyi">我已阅读并接<a href="#">汇达用户注册协议</a></span></div>
+			  <div class="submit"><input id="submit" disabled='disabled' type="submit" value="注册"></div>
+          </form>
+		</div>
+		<div class="fenge"></div>
+		<div class="denglu">
+			<div class="dlbt">已有汇达用户帐号，请直接登陆</div>
+			<div class="denglubj"><a href="<{spUrl c=basic a=index}>">登陆汇达</a></div>
+		</div>
+	</div>
+	
+	</div>
+    
+    
+    	
+    
+    </div>
+</div>
+
+</body></html>

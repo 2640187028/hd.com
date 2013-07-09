@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>查看帖子</title>
+<script type='text/javascript' src='/public/index/js/jquery.js'></script>
+<style type='text/css'>
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:#F8F8F8;
+    font-size:14px;
+    line-height:14px;
+}
+a{
+    text-decoration:none;
+    color:blue;
+}
+#main_content
+{
+    width:900px;
+    margin:0 auto;
+    position:relative;
+}
+#main_content h2
+{
+    margin-top:20px;
+    font-size:14px;
+    line-height:14px;
+    padding:5px;
+    width:48px;
+    border:1px solid;
+    background-color:white;  
+}
+#main_content table
+{
+    margin-top:20px;
+    width:100%;
+}
+tr
+{   
+    width:100%;
+    height:30px;
+    line-height:20px;  
+}
+.bktitle{
+    background:#E8E8E8;
+    font-weight:bold;
+}
+.tiezi
+{
+    background:#F8F8F8;
+}
+.ty_title
+{
+    width:60%;
+}
+.ty_bk,.ty_hf,.ty_time,.ty_ck
+{
+    text-align:center;
+    width:10%;
+}
+#huifu
+{
+    display:none;
+    position:absolute;
+    top:48px;
+    border:1px solid #D5DADF;
+    background-color:#FFFFFF;
+    width:100%;
+    height:500px;
+}
+input,button
+{
+    width:120px;
+    height:30px;
+}
+textarea
+{
+    width:85%;
+    resize:none;
+    height:400px;
+}
+#huifu td.wenzi
+{
+    width:15%;
+}
+#huifu #button
+{
+    text-align:center;
+}
+#welcome{
+    margin-top:10px;
+}
+.user{
+    font-weight:bold;
+    color:red;
+}
+</style>
+<script type='text/javascript'>
+$(document).ready(function(){
+    $('a.xx').click(function(even){
+        even.preventDefault();
+        var art_id = $(this).parent('td').siblings('.ty_title').attr('title');
+        var item = $(this).parent('td').siblings('.ty_bk').attr('title');
+        $('#art_id').val(art_id);
+        $('#item').val(item);
+        $('#huifu').slideDown('slow');
+    })
+    $('a.ck').click(function(even){
+        even.preventDefault();
+        var art_id = $(this).parent('td').siblings('.ty_title').attr('title');
+        var item = $(this).parent('td').siblings('.ty_bk').attr('title');
+        var author_name = $('.user').text();
+        var title = $(this).parent('td').siblings('.ty_title').text();
+        $.post('<{spUrl c=tianya a=tz_view}>',{'art_id':art_id,'item':item,'author_name':author_name,'title':title},function(re_val){
+            $('body').html(re_val);
+        });
+    })
+    $('#close_huifu').click(function(even)
+    {
+        even.preventDefault();
+        $('#huifu').slideUp('slow');
+    })
+    $('#bk1_next').click(function(even){
+        even.preventDefault();
+        var pageid = $(this).attr('title');
+        $.post('<{spUrl c=tianya a=bk_page}>',{'type':1,'pageid':pageid},function(re_val){
+            $('#bk1').html(re_val);
+        })
+    })
+    
+})
+</script>
+</head>
+<body>
+<div id='main_content'>
+<div id='welcome'>您好，来自天涯的<span class='user'><{$data->user->user_name}></span></div>
+<h2><a href='<{spUrl c=tianya a=addnew}>'>发新贴</a></h2>
+<!--<table id='bk1'>
+    <tr class='bktitle'><td class='ty_title'>主版帖子</td><td class='ty_bk'>版块</td><td class='ty_time'>时间</td><td class='ty_hf'>续写帖子</td><td class='ty_ck'>查看贴子</td></tr>
+    <{foreach from=$bk1 item=tiezi}>
+         <tr class='tiezi'><td class='ty_title' title='<{$tiezi->art_id}>'><{$tiezi->title}></td><td class='ty_bk' title='<{$tiezi->item}>'><{$tiezi->item_name}></td><td class='ty_time'><{$tiezi->compose_time}></td><td class='ty_hf'><a class='xx' href=''>点击续写</a></td><td class='ty_ck'><a class='ck' href=''>点击查看</a></td></tr>
+    <{/foreach}>
+    <{if $bk1pid != NULL}>
+        <tr><td colspan='5'><a id='bk1_next' href='' title='<{$bk1pid}>'>翻页</a></td></tr>  
+    <{/if}>
+    
+</table>
+<table id='bk2'>
+    <tr class='bktitle'><td class='ty_title'>副版帖子</td><td class='ty_bk'>版块</td><td class='ty_time'>时间</td><td class='ty_hf'>续写帖子</td><td class='ty_ck'>查看贴子</td></tr>
+    <{foreach from=$bk2 item=tiezi}>
+         <tr class='tiezi'><td class='ty_title' title='<{$tiezi->art_id}>'><{$tiezi->title}></td><td class='ty_bk' title='<{$tiezi->item}>'><{$tiezi->item_name}></td><td class='ty_time'><{$tiezi->compose_time}></td><td class='ty_hf'><a class='xx' href=''>点击续写</a></td><td class='ty_ck'><a class='ck' href=''>点击查看</a></td></tr>
+    <{/foreach}>
+</table>
+<table id='bk3'>
+    <tr class='bktitle'><td class='ty_title'>城市帖子</td><td class='ty_bk'>版块</td><td class='ty_time'>时间</td><td class='ty_hf'>续写帖子</td><td class='ty_ck'>查看贴子</td></tr>
+    <{foreach from=$bk3 item=tiezi}>
+         <tr class='tiezi'><td class='ty_title' title='<{$tiezi->art_id}>'><{$tiezi->title}></td><td class='ty_bk'><{$tiezi->item_name}></td><td class='ty_time' title='<{$tiezi->item}>'><{$tiezi->compose_time}></td><td class='ty_hf'><a class='xx' href=''>点击续写</a></td><td class='ty_ck'><a class='ck' href=''>点击查看</a></td></tr>
+    <{/foreach}>
+</table>
+
+<div id='huifu'>
+    <form action='<{spUrl c=tianya a=view_do}>' method='post'>
+    <table>
+        <tr><td class='wenzi'>续写的内容:</td><td><textarea name='content'></textarea></td></tr>
+        <tr><td id='button' colspan='2'><input type='submit' name='submit' value='续写' /><button id='close_huifu'>关闭窗口</button></td></tr>
+    </table>
+    <input type='hidden' name='item' id='item' />
+    <input type='hidden' name='art_id' id='art_id' />
+    </form>
+</div>
+-->
+</div>
+</body>
+</html>

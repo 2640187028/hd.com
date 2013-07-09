@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>找回密码</title>
+<style type='text/css'>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+img{ border:none}
+.main{   padding-top:10px;}
+.regbg{ margin:0 auto; width:98%; height:350px; background:#FFF; position:relative;}
+#title{padding-left:20px;line-height:50px;height:50px;font-weight:bold;background-color:#eef2f5;}
+#main{width:60%;margin:4% auto;}
+#main td{height:40px;line-height:40px;}
+#main input{border:1px solid #666;height:20px;}
+#yzm{width:60px;}
+.sub{text-align:center;}
+.sub input{display:block;background-color:#3484c4;color:white;width:90px;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	 $(".main").fadeTo("fast", 0.93);
+	cover();
+	$(window).resize(function(){
+	cover();
+	});	
+    $('#back').click(function(){
+        window.location.href = '<{spUrl c=basic a=index}>';
+    })
+});
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});	
+}
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="regbg">
+	   <div class="pd">
+            <div id='title'>找回密码</div>
+            <div id='main'>
+                <p>请输入您的用户ID或者注册邮箱，系统将发送一封密码重置信至您的注册邮箱中。</p>
+                <form action='<{spUrl c=basic a=findpwd}>' method='post'>
+                    <table>
+                        <tr><td>用户ID/邮箱：</td><td><input type='text' name='user' /></td></tr>
+                        <tr><td>验证码：</td><td><input type='text' id='yzm' name='yzm' /><span><img src='<{spUrl c=basic a=_vcode}>' width='60px' height='20px' onClick="this.src='/index.php?c=basic&a=_vcode&'+Math.random()" /></span></td></tr>
+                        <tr><td class='sub'></td><td class='sub'><input type='submit' value='发送邮件' /></td></tr>
+                    </table>          
+                </form>
+            </div>	
+	   </div>    
+    </div>
+</div>
+</body>
+</html>

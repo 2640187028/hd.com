@@ -1,0 +1,61 @@
+<{include file='header.html'}>
+<!--样式及脚本写在这里-->
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="17" valign="top" background="<{$IMG_PATH}>mail_leftbg.gif"><img src="<{$IMG_PATH}>left-top-right.gif" width="17" height="29" /></td>
+    <td valign="top" background="<{$IMG_PATH}>content-bg.gif"><table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
+      <tr>
+        <td height="31"><div class="titlebt2">管理员设置</div></td>
+      </tr>
+    </table></td>
+    <td width="16" valign="top" background="<{$IMG_PATH}>mail_rightbg.gif"><img src="<{$IMG_PATH}>nav-right-bg.gif" width="16" height="29" /></td>
+  </tr>
+  <tr>
+    <td valign="middle" background="<{$IMG_PATH}>mail_leftbg.gif">&nbsp;</td>
+    <td valign="top" bgcolor="#F7F8F9">
+    	<!--所需内容写在这里-->
+    	<div class="subnav">
+        <div class="content-menu ib-a blue line-x"> 
+        	<a onclick="com_dialog_open('<{spUrl c=manger a=addition}>','添加管理员')"  href="#">
+        		<em class='addem'>添加管理员</em>
+        	</a> 
+        	<a onclick="com_dialog_open('<{spUrl c=manger a=mrole}>','管理角色')" href='#' >
+        		<em class='addem'>管理角色</em>
+        	</a> 
+        	</div>
+      </div>
+      <div class="pad_10">
+        <div class="table-list">
+          <table cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th width="10%">序号</th>
+                <th align="left" width="10%">用户名</th>
+                <th align="left" width="10%">所属角色</th>
+                <th align="left" width="10%">最后登录IP</th>
+                <th align="left" width="20%">最后登录时间</th>
+                <th align="left" width="15%">E-mail</th>
+                <th width="15%">管理操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            <{foreach $administor as $value}>
+            <tr>
+              <td align="center" width="10%"><{$value.id}></td>
+              <td width="10%"><{$value.username}></td>
+              <td width="10%"><{$value.role.identify}></td>
+              <td width="10%"><{$value.login_ip}></td>
+              <td width="20%"><{$value.lasttime}></td>
+              <td width="15%"><{$value.email}></td>
+              <td align="center" width="15%"><a href="">修改</a> | <{if $value.id == '1'}> <font color='#cccccc'>删除</a> <{else}> <a href="">删除</a> <{/if}> </td>
+            </tr>
+            <{/foreach}>
+            </tbody>
+            
+          </table>
+        </div>
+      </div>
+</td>
+<{include file='footer.html'}>

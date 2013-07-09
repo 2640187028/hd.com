@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>等待激活</title>
+<style type='text/css'>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+img{ border:none}
+.regbg{ margin:0 auto; width:100%; height:650px; background:#FFF; position:relative;}
+.pd{padding:10px;}
+.content{height:550px;margin-top:20px;}
+#wait0{height:50px;background:url(/public/index/images/bg_waita.gif) no-repeat top}
+#wait1,#wait2{margin-left:5%;margin-top:50px;width:90%;height:170px;border:2px solid #edd28b;}
+#wait1{background:url(/public/index/images/wait1_tip.gif) no-repeat 40px center #fffdee;}
+#wait1 p{margin-left:120px;margin-top:40px;font-weight:bold;font-size:18px;}
+#wait1 p #email{color:red;}
+#wait2{background:url(/public/index/images/wait2_tip.gif) no-repeat 40px 40px}
+#wait2 ul{margin-top:40px;margin-left:120px;color:#666666;}
+#wait2 a{text-decoration:underline;color:red;}
+#change_form{padding:10px;color:#000;width:200px;height:150px;background:#fff;position:absolute;top:380px;left:350px;border:5px solid blue;display:none;}
+#tip{font-size:14px;color:red;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	 
+    setTimeout("window.parent.window.location.href= '<{spUrl c=basic a=index}>'",3000);
+	
+    $('#change_email').click(function(even){
+        even.preventDefault();
+        $('#change_form').css('display','block');
+    })
+    $('#close').click(function(){
+        $('#change_form').css('display','none');
+    })
+    $('#submit').click(function(even){
+        even.preventDefault();
+        var new_email = $('#new_email').val();
+        $.post('<{spUrl c=basic a=change_email}>',{'new_email':new_email},function(re){
+            if(re != 'yes')
+            {
+                alert('更换成功');
+                $('#close').click();
+                window.location.href = '<{spUrl c=basic a=waitactive}>';
+            }else{
+                $('#tip').html(re);
+            }
+        })
+    })
+});
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});	
+}
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="regbg">
+	   <div class="pd">
+            <div class="content">
+                <div id='wait0'></div>
+                <div id='wait1'>
+                    <p>
+                        您的信息已经成功提交，激活链接已成功发送到您的邮箱<span id='email'><{$active_email}></span>.
+                        <br />
+                        <br />
+                        登陆注册邮箱，按照邮件内容提示，激活您的账户即可完成注册。
+                    </p>
+                </div>
+                <div id='wait2'>
+                    <ul>
+                        <li>确认邮件是否被您提供的邮箱系统自动拦截，或被误认为垃圾邮件放到垃圾箱了。</li>
+                        <br />
+                        <li>如果确认邮箱正确，可以请求<a href='<{spUrl c=basic a=waitactive}>'>再次发送激活链接</a></li>
+                        <br />
+                        <li>更换相对稳定的邮箱地址<a href='' id='change_email'>更换</a></li>
+                        <br />
+                        <form id='change_form' method='post'>
+                            新邮箱地址:<br /><br /><input type='text' name='new_email' id='new_email' />
+                            <br /><br /><span id='tip'></span>
+                            <br /><br /><input id='submit' type='submit' value='更换' />
+                            <input id='close' type='button' value='关闭' />
+                        </form>
+                    </ul>
+                </div>
+            </div>	
+	   </div>    
+    </div>
+</div>
+</body>
+</html>

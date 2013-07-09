@@ -1,0 +1,64 @@
+<{include file='header.html'}>
+</head>
+<body>
+      <div class="table-list pad-lr-10">
+        <form name="myform" action="" method="post">
+          <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">ID</th>
+                <th width="15%"  align="left" >角色名称</th>
+                <th width="265"  align="left" >角色描述</th>
+                <th width="5%"  align="left" >状态</th>
+                <th class="text-c">管理操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="10%" align="center">4</td>
+                <td width="15%"  >总编</td>
+                <td width="265" >总编</td>
+                <td width="5%"><a href="?m=admin&c=role&a=change_status&roleid=4&disabled=1"><font color="red">√</font></a></td>
+                <td  class="text-c"><a href="javascript:setting_role(4, '总编')">权限设置</a> | <a href="?m=admin&c=role&a=member_manage&roleid=4&menuid=50">成员管理</a> | <a href="?m=admin&c=role&a=edit&roleid=4&menuid=50">修改</a> | <a href="javascript:confirmurl('?m=admin&c=role&a=delete&roleid=4', '是否删除?')">删除</a> </td>
+              </tr>
+              <tr>
+                <td width="10%" align="center">5</td>
+                <td width="15%"  >编辑</td>
+                <td width="265" >编辑</td>
+                <td width="5%"><a href="?m=admin&c=role&a=change_status&roleid=5&disabled=1"><font color="red">√</font></a></td>
+                <td  class="text-c"><a href="javascript:setting_role(5, '编辑')">权限设置</a> | <a href="?m=admin&c=role&a=member_manage&roleid=5&menuid=50">成员管理</a> | <a href="?m=admin&c=role&a=edit&roleid=5&menuid=50">修改</a> | <a href="javascript:confirmurl('?m=admin&c=role&a=delete&roleid=5', '是否删除?')">删除</a> </td>
+              </tr>
+              <tr>
+                <td width="10%" align="center">3</td>
+                <td width="15%"  >运营总监</td>
+                <td width="265" >运营总监</td>
+                <td width="5%"><a href="?m=admin&c=role&a=change_status&roleid=3&disabled=1"><font color="red">√</font></a></td>
+                <td  class="text-c"><a href="javascript:setting_role(3, '运营总监')">权限设置</a> | <a href="?m=admin&c=role&a=member_manage&roleid=3&menuid=50">成员管理</a> | <a href="?m=admin&c=role&a=edit&roleid=3&menuid=50">修改</a> | <a href="javascript:confirmurl('?m=admin&c=role&a=delete&roleid=3', '是否删除?')">删除</a> </td>
+              </tr>
+              <tr>
+                <td width="10%" align="center">7</td>
+                <td width="15%"  >发布人员</td>
+                <td width="265" >发布人员</td>
+                <td width="5%"><a href="?m=admin&c=role&a=change_status&roleid=7&disabled=1"><font color="red">√</font></a></td>
+                <td  class="text-c"><a href="javascript:setting_role(7, '发布人员')">权限设置</a> | <a href="?m=admin&c=role&a=member_manage&roleid=7&menuid=50">成员管理</a> | <a href="?m=admin&c=role&a=edit&roleid=7&menuid=50">修改</a> | <a href="javascript:confirmurl('?m=admin&c=role&a=delete&roleid=7', '是否删除?')">删除</a> </td>
+              </tr>
+              <tr>
+                <td width="10%" align="center">2</td>
+                <td width="15%"  >站点管理员</td>
+                <td width="265" >站点管理员</td>
+                <td width="5%"><a href="?m=admin&c=role&a=change_status&roleid=2&disabled=1"><font color="red">√</font></a></td>
+                <td  class="text-c"><a href="javascript:setting_role(2, '站点管理员')">权限设置</a> | <a href="?m=admin&c=role&a=member_manage&roleid=2&menuid=50">成员管理</a> | <a href="?m=admin&c=role&a=edit&roleid=2&menuid=50">修改</a> | <a href="javascript:confirmurl('?m=admin&c=role&a=delete&roleid=2', '是否删除?')">删除</a> </td>
+              </tr>
+              <tr>
+                <td width="10%" align="center">1</td>
+                <td width="15%" >超级管理员</td>
+                <td width="265" >超级管理员</td>
+                <td width="5%"><a href="?m=admin&c=role&a=change_status&roleid=1&disabled=1"><font color="red">√</font></a></td>
+                <td  class="text-c"><font color="#cccccc">权限设置</font> | <a href="?m=admin&c=role&a=member_manage&roleid=1&menuid=50">成员管理</a> | <font color="#cccccc">修改</font> | <font color="#cccccc">删除</font> </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<{include file='header.html'}>
+<style type="text/css">
+*{margin:0; padding:0; list-style:none; text-decoration:none;font-size:14px;}
+.main{ padding:30px;width:500px;margin:0 auto;}
+.a_bind{display:block;float:left;width:93px; height:31px;color:#6c635a; background:#e7ecf2; font-size:14px;line-height:20px;text-align:center;margin-left:100px;margin-top:20px;line-height:31px; text-align:center;}
+.xianmu{margin:10px;}
+.xmm{display:block;width:80px;text-align:right;float:left;}
+.xmc select{display:block;width:150px;}
+</style>
+<script type='text/javascript'>
+$(document).ready(function(){
+    $('.book_name').click(function(){
+        var bn = $(this).attr('title');
+        if(bn == 'no')
+        {
+            $('.ori_author').html('');
+        }else{
+            $('.ori_author').html(bn);
+        }
+    })
+})
+</script>
+</head>
+<body>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+  <tr>
+
+    <td width="17" valign="top" background="<{$IMG_PATH}>mail_leftbg.gif"><img src="<{$IMG_PATH}>left-top-right.gif" width="17" height="29" /></td>
+
+    <td valign="top" background="<{$IMG_PATH}>content-bg.gif"><table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
+
+      <tr>
+
+        <td height="31"><div class="titlebt">绑定作者</div></td>
+
+      </tr>
+
+    </table></td>
+
+    <td width="16" valign="top" background="<{$IMG_PATH}>mail_rightbg.gif"><img src="<{$IMG_PATH}>nav-right-bg.gif" width="16" height="29" /></td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="middle" background="<{$IMG_PATH}>mail_leftbg.gif">&nbsp;</td>
+
+    <td valign="top" bgcolor="#F7F8F9">
+<div class="main">
+<form action='<{spUrl c=author a=bind_do}>' method='post'>
+    <div class='xianmu'><span class='xmm'>书名：</span>
+        <span class='xmc'>
+        <select name='xs_id' >
+            <option class='book_name' title="no">请选择书名</option>
+            <{foreach from=$xsinfo item=xs}>
+                <option class='book_name' value='<{$xs.xs_id}>' title='<{$xs.xs_author.member_nickname}>'><{$xs.xs_name}></option>
+            <{/foreach}>
+        </select>
+        </span>
+    </div>
+    <div class='xianmu'><span class='xmm'>原作者：</span>
+        <span class='xmc ori_author'></span><br />
+    </div>
+    <div class='xianmu'><span class='xmm'>绑定给：</span>
+        <span  class='xmc'>
+            <select name='user_id' >
+            <option>请选择作者</option>
+            <{foreach from=$all_author item=author}>
+                <{if $author.user_id != 0}>
+                <option value='<{$author.user_id}>'><{$author.user_detail.member_nickname}></option>
+                <{/if}>
+            <{/foreach}>
+            </select>
+        </span>
+    </div>
+    <div><input class='a_bind' type='submit' value='绑定' /></div>
+</form>
+<div class="clr"></div>
+</div>
+</td>
+
+<{include file='footer.html'}>

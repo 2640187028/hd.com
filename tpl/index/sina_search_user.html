@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+
+<title>内容中心</title>
+<body>
+<{foreach from=$user_weibo item=wb name=w}>
+    第[<{$smarty.foreach.w.index+1}>]条&nbsp;&nbsp;<{date('Y-m-d H:i:s',strtotime($wb.created_at))}><br />
+<{/foreach}>
+</body>
+</html>

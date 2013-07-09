@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>发表新作</title>
+<style>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.main{ border-top:1px solid #cbcbcc; border-right:1px solid #cbcbcc; width:99.9% }
+img{ border:none}
+.sousuo{ float:left; margin-top:10px; width:499px; height:36px; background:url(/public/index/images/sousuobg.gif); margin-left:2.5%}
+ul{ list-style:none}
+.sousuo input{ height:25px; width:360px; margin-top:4px; margin-left:40px; border: none; color:#999;background: none; line-height:25px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:12px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+.zhongbu{
+}
+.mydy{  margin-top:10px; border-left:none; border-right:none;}
+.title{ font-size:12px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.title ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+
+.wbnr{ padding:10px; padding-right:0px; font-size:12px; color:#333;}
+.wbk{ border:1px solid #e6e6e6; width:120px; height:35px; padding:10px; overflow:hidden; float:left; margin-left:55px; margin-bottom:10px;}
+.tesebox{ font-size:14px; border:1px solid #e6e6e6; width:160px; height:100px; padding:10px; overflow:hidden; float:left; margin-left:55px; margin-bottom:10px;}
+.bg{background-color:#00C4CD; color:#FFFFFF}
+
+
+.wbk:hover{border:1px solid #FF9900;cursor:default }
+.wbtx{ width:35px; height:35px; float:left}
+.wbtx img{width:35px; height:35px;}
+.jbzl{ margin-left:10px; float:left; line-height:18px;}
+.tsn{ float:left; margin-left:10px; text-align:center; line-height:18px;}
+.xnr{ float:right; color:#FF6633;}
+.mydy .none{ display:none}
+.fblx{ float:left; margin-left:30px; font-size:12px; line-height:35px;}
+.infobox{ width:98%; margin:0 auto; height:100px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infobox:hover{border:1px solid #00C4CD; cursor:default}
+.infoleft{ width:60px; float:left}
+.rdtx{ margin:0 auto; width:50px; height:50px;}
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin:0 auto; margin-top:10px; text-align:center; line-height:22px; }
+.dingyuebox a{color:#FFFFFF}
+.inforight{ height:80px; width:90%; float:left; margin-left:10px;}
+.darenname{ font-size:14px; font-weight:bold; margin-bottom:10px;}
+.infocontent{ line-height:20px; color:#462c00}
+.infoshuxin{ line-height:25px; color:#19bce7}
+.infohui{ color:#666; margin-left:20px;}
+.zhuangtai{ margin-top:10px;}
+.wbname a{ color:#6666FF}
+select,input{
+    width:120px;
+    font-size:14px;
+    height:25px;
+    line-height:14px;
+}
+input#title{
+    width:300px;
+}
+textarea{
+    width:70%;
+    height:250px;
+    resize:none;
+}
+.grid{
+    text-align:left; 
+    width:90%;
+	font: 14px/120% '宋体',Verdana,Arial,sans-serif;
+	
+	padding:3px;
+	margin:20px auto;
+}
+.grid input,select{ border:1px solid #e6e6e6}
+.grid h2{
+	border: 1px solid #a3bee8;
+	background: #f0f7ff;
+	color:#054e86;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 8px;
+}
+
+.grid span{
+	padding: 3px;
+	background-color: #ffffff !important; 
+}
+.tip,.val{
+    margin-top:10px;
+    float:left;
+}
+.tip{
+    width:10%;
+}
+.val{
+    width:90%;
+}
+.button{
+    margin-top:20px;
+    margin-left:10%;
+    width:98px; height:35px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none
+}
+#book_cover{
+    width:250px;
+}
+#book_img{
+    display:none;
+}
+#picpath{ width:200px;}
+#imgPreview{ display:none;width:150px;height:150px;}
+.fabiaoxz{ margin:30px; height:40px; line-height:30px; border-bottom:1px solid #e5e5e5; font-weight:bold; color:#5a5a5a}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript" src="/public/simple_ueditor/editor_config.js"></script>
+<script type="text/javascript" src="/public/simple_ueditor/editor_all_min.js"></script>
+<script type="text/javascript" src="/public/index/js/jquery.imgareaselect.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+$("input[type='file']").change(function(){
+        document.a_add.path.value=this.value;
+        $('#imgPreview').css('display','block');
+        previewImage(this);
+    });
+    $('#sub').click(function(even){
+        if($('#imgpath').val() == '')
+        {
+            even.preventDefault();
+            alert('请先上传图片');
+        }
+    })
+    function previewImage(file)
+    {
+    var porImg  = $('#preview');
+        if (file["files"] && file["files"][0])
+        {
+            var reader = new FileReader();
+            reader.onload = function(evt){
+            porImg.attr({src : evt.target.result});
+        }
+        reader.readAsDataURL(file.files[0]);
+        }else{
+    	//获取ie的本地图片路径
+        var proIeImageDom = document.createElement("div");
+        $(proIeImageDom).attr({"id":"preview"});
+        porImg.parent().prepend(proIeImageDom);
+        porImg.remove();
+        file.select();
+        path = document.selection.createRange().text;
+        //ie建的一个DIV层
+        document.getElementById("imgPreview").style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")";
+        }
+    }    
+});
+
+
+</script>
+</head>
+<body>
+<div class="main">
+<{include file='fabu.html'}>
+<div class="zx">
+    <div class="fabiaoxz">发表新作</div>
+        <div class='grid'>
+		<form id='form_add' name='a_add' action='<{spUrl c=author a=addnew_do}>' method='post' enctype="multipart/form-data">
+           
+            <p>
+                <div class='tip'>类别</div>
+                <div class='val'>                        
+                        <select name='type'>
+                            <option value='5'>国学</option>
+                            <option value='8'>特色业务</option>
+                            <option value='10'>公采信息</option>
+                        </select>
+                </div>
+            </p>
+            <p>
+                <div class='tip'>新书名称</div>
+                <div class='val'>                        
+                    <input id='title' type='text' name='book_name'/>
+                </div>
+            </p>
+            <p>
+                <div class='tip'>身份</div>
+                <div class='val'> 
+                    <select name="public_by">
+                        <{foreach from=$identify item=iden}>
+                        <{if $iden == 'author'}>
+                            <option value="author">作者</option>
+                        <{/if}>
+                        <{if $iden == 'xiaobian'}>
+                            <option value="xiaobian">小编</option>
+                            <{/if}>
+                        <{/foreach}>
+                    </select>                      
+                </div>
+            </p>
+            <p>
+                <div class='tip'>同步到天涯</div>
+                <div class='val'>                        
+                    <select name='tianya_type'>
+                            <option value='0'>不同步</option>
+                            <option value='no17'>仗剑天涯</option>
+                            <option value='no124'>奇幻文学</option>
+                            <option value='16'>莲蓬鬼话</option>
+                    </select>
+                </div>
+            </p>
+			<p>
+                <div class='tip'>本书封面</div>
+                <div class='val'>                      
+                    <input id='picpath' type='file' name='book_cover' />
+                    <input type='hidden' id='imgpath' name="path" readonly />
+                    <div id='imgPreview'>
+                        <img id="preview" src='' width='120px' height='120px'>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class='tip'>内容简介</div>
+                <div class='val'>                        
+                    <script type="text/plain" id="simple_ueditor" name='intro'></script>
+                    <script type="text/javascript">
+                        UE.getEditor('simple_ueditor')
+                    </script> 
+                </div>
+            </p>
+            
+            <p>
+                <input class='button' id='sub' type='submit' value='提交' />
+                <input class='button' type='button' value='返回' onclick='history.go(-1);' />
+            </p>
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>

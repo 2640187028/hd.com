@@ -1,0 +1,32 @@
+<script type='text/javascript'>
+$(document).ready(function(){
+    $('#send').click(function(even){
+        if($('#qq').attr('checked') != 'checked' && $('#dr').attr('checked') != 'checked')
+        {
+            even.preventDefault();
+            alert('请先选择一个公告类型');
+        }
+    })
+})
+</script>
+<div class="fabu">
+<form action='<{spUrl c=center a=announce_do}>' method='post'>
+  <div class="fbt"><textarea name='content' class="fb"></textarea></div>
+  <div class="clr"></div>
+  
+  <div class="fban">
+  <div class="fbnn"><input id='send' type="submit" value="发送"/></div>
+  	<div class="ksrz">最大长度140字</div>
+  </div>
+  
+  <div class="fbgn">
+   <{if $is_qqadmin == '1'}>
+  	<div class="fblx"><input id='qq' type='checkbox' name='qq_announce' checked='checked' value='qq' />QQ群公告</div>
+   <{/if}>
+   <{if $is_daren == '1'}>
+	<div class="fblx"><input id='dr' type='checkbox' name='dr_announce' checked='checked' value='dr' />达人公告</div>
+   <{/if}>
+
+  </div>
+</form>
+</div>

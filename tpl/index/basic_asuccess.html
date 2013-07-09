@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>注册成功</title>
+<style type='text/css'>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+img{ border:none}
+body{background-image:url(/public/index/images/bg3.jpg);background-repeat:repeat;background-attachment:fixed;font-size:14px;color:#333;z-index:-1}
+.main{ position:absolute; left:50%; top:1%; width:80%; height:410px; background:#48a1c9; margin-left:-40%; z-index:1; padding-top:10px;}
+.regbg{ margin:0 auto; width:98%; height:400px; background:#FFF; position:relative;}
+.pd{padding:10px;}
+.content{height:550px;margin-top:20px;background:url(/public/index/images/asuccess.gif) no-repeat top}
+#tip{position:absolute;left:30%;top:30%;width:400px;height:200px;font-size:20px;line-height:20px;}
+#tip p{color:green;margin:20px;font-weight:bold;text-align:center}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	 $(".main").fadeTo("fast", 0.93);
+	cover();
+	$(window).resize(function(){
+	cover();
+	});	
+    setTimeout("window.location.href = '<{spUrl c=basic a=index}>'", 5000);
+}); 
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});	
+}
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="regbg">
+	   <div class="pd">
+            <div class="content">
+                <div id='tip'>
+                    <p>恭喜你，注册成功</p>
+                    <p>请您用注册好的账号密码重新登陆</p>
+                    <p>正在为你跳转至登陆页面中...</p>
+                </div>
+            </div>	    
+	   </div>    
+    </div>
+</div>
+</body>
+</html>

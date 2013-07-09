@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>主页</title>
+<style type="text/css">
+*{margin:0; padding:0; list-style:none; text-decoration:none}
+
+#main{ padding:30px;}
+.menu ul li { float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+.menu ul li.bg{ background:#f6f2cc}
+.clr{ clear:both; width:0px; height:0px;}
+.list{ padding-left:30px;}
+.list ul li{ width:318px; height:106px; float:left; margin-top:30px;}
+.img{ width:105px; height:105px; border:1px solid #e6e6e6;text-align:center; float:left}
+.img img{ width:74px; height:98px; margin-top:4px; border:none}
+.jj{ float:left; margin-left:10px; margin-top:10px;}
+.title a{ color:#288ccd; font-size:14px}
+.bc{ font-size:14px; color:#000; margin-top:11px; margin-left:5px;}
+.zt{ color:#63b818; margin-left:5px;}
+.xz a{ color:#288ccd; margin-left:5px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:12px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+.fblx{ float:left; margin-left:30px; font-size:12px; line-height:35px;}
+
+#add_new{width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#f6f2cc; font-size:14px; margin-left:30px; margin-top:10px; margin-bottom:0px;}
+#add_new a{color:#6c635a;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".mydy ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".mydy .wbnr:eq("+i+")").show().siblings(".mydy .wbnr").hide();
+		})
+	 })
+
+	
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+<{include file='fabu.html'}>
+<div>
+<div id="add_new"><a href="<{spUrl c=author a=addnew}>" target="mainFrame">发表新作</a></div>
+<div class="clr"></div>
+<div class="list">
+			<ul>
+			<{foreach from=$xsinfo item=info}>
+				<li>
+					<div class="img"><a href="<{spUrl c=author a=manage xs_id=$info['xs_id']}>"><img src="<{$info['xs_img']}>" /></a></div>
+					<div class="jj">
+						<div class="title"><a href="<{spUrl c=author a=manage xs_id=$info['xs_id']}>"><{$info['xs_name']|truncate:12:'..'}></a></div>
+						<div class="bc"><{$info.xs_author.member_nickname}></div>
+						<div class="bc">更新状态:<span class="zt"><{if $info['statu'] == '0'}>连载中<{else if $info['statu'] == '1'}>已完结<{/if}></span></div>
+						<div class="bc"><span class="xz"></span></div>
+					</div>
+				
+				</li>
+			 <{/foreach}>
+				
+			</ul>
+		</div>
+
+</div>
+<div class="clr"></div>
+</div>
+</body>
+</html>

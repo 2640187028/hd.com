@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>重置密码</title>
+<style type='text/css'>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+img{ border:none}
+body{background-image:url(/public/index/images/bg3.jpg);background-repeat:repeat;background-attachment:fixed;font-size:14px;color:#333;z-index:-1}
+.main{ position:absolute; left:50%; top:1%; width:80%; height:360px; background:#48a1c9; margin-left:-40%; z-index:1; padding-top:10px;}
+.regbg{ margin:0 auto; width:98%; height:350px; background:#FFF; position:relative;}
+#title{padding-left:20px;line-height:50px;height:50px;font-weight:bold;background-color:#eef2f5;}
+#main{width:60%;margin:4% auto;}
+#main td{height:40px;line-height:40px;}
+#main input{border:1px solid #666;height:20px;}
+#yzm{width:60px;}
+#sub{text-align:center;}
+#sub input{width:80px;height:30px;background-color:#3484c4;color:white;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	 $(".main").fadeTo("fast", 0.93);
+	cover();
+	$(window).resize(function(){
+	cover();
+	});	
+    $('#submit').click(function(even){
+        if($('#comfirmpwd').val() != $('#pwd').val())
+        {
+            even.preventDefault();
+            alert('密码不一致,请重新输入');
+        }
+    })
+});
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});	
+}
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="regbg">
+	   <div class="pd">
+            <div id='title'>重置密码</div>
+            <div id='main'>
+                <p>请输入您的新密码</p>
+                <form action='<{spUrl c=basic a=findpwd_do}>' method='post'>
+                    <table>
+                        <tr><td>密码：</td><td><input type='password' id='pwd' name='pwd' /></td></tr>
+                        <tr><td>确认密码：</td><td><input type='password' id='comfirmpwd'/></td></tr>
+                        <tr><td id='sub' colspan='2'><input type='submit' id='submit' value='重置密码' /></td></tr>
+                    </table>          
+                </form>
+            </div>	
+	   </div>    
+    </div>
+</div>
+</body>
+</html>

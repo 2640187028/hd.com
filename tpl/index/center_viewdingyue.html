@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>主页</title>
+<style type="text/css">
+ 
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.main{  width:99.9% }
+img{ border:none}
+ul{ list-style:none}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.mydy{  margin-top:10px;  border:none;}
+.title{ font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.title ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+.hdk{ font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.hdk ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+.wbnr{ padding:10px; padding-right:0px; font-size:14px; color:#333;}
+.hdknr{ padding:10px; padding-right:0px; font-size:14px; color:#333;}
+.wbk{ border:1px solid #e6e6e6; width:120px; height:35px; padding:10px; overflow:hidden; float:left; margin-left:55px; margin-bottom:10px;}
+.menu{ padding-left:30px; margin-bottom:10px; height:31px}
+.menu ul li {  float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+.menu ul li.bg{ background:#f6f2cc}
+.bg{background-color:#009900; color:#FFFFFF}
+.jilu{border-left:none; border-right:none;}
+.none{ display:none}
+.wbk:hover{border:1px solid #FF9900;cursor:default }
+.wbtx{ width:35px; height:35px; float:left}
+.wbtx img{width:35px; height:35px;}
+.jbzl{ margin-left:10px; float:left; line-height:18px;}
+.xnr{ float:right; color:#FF6633}
+.jilu .none{ display:none}
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+.infobox{ width:98%; margin:0 auto; min-height:50px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infoleft{ width:100px; float:left; line-height:30px;}
+.inforight{  width:100%; float:left; margin-left:10px; line-height:30px;}
+.inforight span{ margin-right:20px;}
+.xflb{width:98%; margin:0 auto; height:50px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.xflb{ line-height:50px;}
+.qian{ color:#F37800; font-weight: bold}
+.shouru{ color:#53A000; font-weight: bold}
+.inforight .chengyuanlb a{ color:#3D9498}
+.fbqgg a{ color:#FF6600}
+.tianjiaqqqun{ width:80%; margin:0 auto}
+.tianjiaqqqun td{ height:30px;}
+.renshu input{ width:50px;}
+.cylb{ width:99%}
+.quntj input{ margin-left:50px; margin-top:20px;}
+.cytitle{font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC;}
+.cytitle .cytnr{ margin-bottom:10px;margin-left:30px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:12px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".mydy ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".mydy .wbnr:eq("+i+")").show().siblings(".mydy .wbnr").hide();
+		})
+	 })
+
+	
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+<{include file='fabu.html'}>
+<div class="mydy">
+	
+		<div class="menu">
+			<ul>
+				<li class="bg">我的订阅者</li>
+				
+			</ul>
+		</div>
+	
+	<div class="wbnr">
+
+		<{foreach from=$result item=re}>
+		<div class="infobox">
+		<div class="rdpanding">
+			<div class="inforight">
+				<table width="100%" border="0">
+  <tr>
+    <td width='20%'>订阅者ID： <{$re.user_info.user_id}></td>
+    <td width='20%'>订阅者昵称：<{$re.user_info.member_nickname}></td>
+    <td widht='20%'>订阅源： <{$author}> <{$re.source.0.s_name}></td>
+    <td>有效期： 2013.05.01-2013.06.01</td>
+    <!--<td>费用： 20金币</td>-->
+  </tr>
+</table>
+
+				</div>
+				
+			</div>
+		</div>
+ 	  <{/foreach}>
+	</div>
+
+			
+	<div class="clr"></div>
+		
+
+	
+</div>
+</div>
+</body>
+</html>

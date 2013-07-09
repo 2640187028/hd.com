@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>内容中心</title>
+<style>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.clr{clear:both;margin:0;padding:0;height:0;font- size:0}
+img{ border:none}
+ul{ list-style:none}
+body{background-image:url(/public/index/images/bg3.jpg) ;
+background-repeat:no-repeat;
+background-attachment:fixed;}
+body{ font-size:14px;color:#333; z-index:-1;_background-attachment:fixed; _background-image:url(about:blank);}
+.main{ position:absolute; left:50%; top:53px; width:80%; height:auto; background:#48a1c9; margin-left:-40%; z-index:1; padding-top:10px; padding-bottom:10px;}
+.center{ position:relative}
+.regbg{ margin:0 auto; width:98%;  background:#48a1c9;}
+.padding{ padding:0px;  background:#FFFFFF}
+.top{ position:fixed; margin-left:0px; margin-top:0;left:0px; top:0px; width:100%; height:53px; background:#eff2f4; border-bottom:1px #cbcbcc solid; z-index:999; }
+.top ul{ margin-top:10px; margin-left:14%;}
+.top ul li{ float:left; display:block; width:80px; height:30px;  line-height:30px; text-align:center;  margin-left:30px;}
+.top ul li a{display:block; width:82px; height:34px; line-height:34px; color:#423009;background:#e5e5e5; background:url(/public/index/images/dhbj.gif)}
+.top ul li a:hover{ background:#FFFFFF; color:#3399FF;background:url(/public/index/images/hdmbgbaise.gif)}
+.top ul li a.hover{ background:#FFFFFF; color:#3399FF;background:url(/public/index/images/hdmbgbaise.gif)}
+.right{z-index:999; width:16%;  background:#eef2f5; float:right; border-left:1px #cbcbcc solid; }
+.zx{ width:83%;height:1776px; background:#FFFFFF; float:left; padding-bottom:30px;}
+.img{ padding:5px; border:1px solid #cdcdd0; width:130px; height:169px; float:left}
+.img:hover {border:1px solid #006600;}
+.img img{ width:130px; height:169px; }
+.list{ margin:0 auto; margin-top:20px; }
+.imgtitle{ width:130px; line-height:30px; text-align:center; font-size:12px}
+.imgtitle a{ color:#0083df}
+.imgtitle a:hover{ text-decoration:underline}
+.touxiang{ width:106px; height:106px; margin:0 auto; margin-top:10px; border:1px solid #cbcbcc; background:#FFFFFF; padding:5px; margin-bottom:20px;}
+.touxiang img{width:106px; height:106px;}
+.block{ width:94%; height:200px; border:1px solid #cbcbcc; margin:0 auto; margin-top:20px; }
+.bpad{ padding:10px;position:relative}
+.xslisttltie{ margin:0 auto; text-align:center; font-size:18px; color:#009900; font-weight:bold; width:80%; height:40px;}
+.hdk{border-bottom:1px solid #006699; height:30px; width:80%; margin:0 auto }
+
+.right_menu{ width:113px; height:36px; font-size:14px; line-height:36px; text-align:left; background:url(/public/index/images/right_menu.jpg) no-repeat; margin-left:-1px;  }
+.right_menu:hover{background:url(/public/index/images/right_menu_hover.jpg);}
+.right_menu a{ color:#00477b;  margin-left:30px;}
+.tuichu{ position:absolute; right:10%; top:1px;}
+
+/*滑动门*/
+*{ margin:0; padding:0; font-size:12px;}
+.hdk ul li.hdkli{ list-style:none; float:left;cursor:pointer; width:100px; height:30px; line-height:30px; text-align:center; color:#666}
+.hdk ul li.hdkli.bg{ background-color:#0099FF; color:#FFFFFF}
+.hdk .div{  text-align:center; width:100%;}
+.hdk .none{ display:none}
+
+/*分卷*/
+.fenjuan{  width:100%; margin-top:30px; padding-left:10px;}
+.fjtitle{ line-height:30px; font-weight:bold; color:#993300}
+.fenjuanbj1{border-bottom:1px #c5c3c1 solid; height:1px; padding-top:8px;}
+.fenjuanbj{ border-bottom:1px #e7e5e2 solid;height:10px;}
+.fjzx{ width:9px; height:7px; margin:0 auto; background:url(/public/index/images/fenjuan.jpg) no-repeat}
+.fj{ margin-top:10px;}
+.fj ul li{ float:left; width:200px; text-align:left; margin-left:15px; height:auto; min-height:50px; line-height:20px;}
+.fj ul li a{ color:#333; }
+.fj ul li a:hover{ color:#FF9900}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var height = $('.zx').height();
+	$('.right').css('height',height+30);
+
+$(".hdk ul li").each(function(i){
+		$(this).hover(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".hdk .div:eq("+i+")").show().siblings(".hdk .div").hide();
+		})
+	 })
+	
+});
+</script>
+
+</head>
+
+<body>
+<div class="main">
+	<div class="regbg">
+	
+    	<div class="padding">		
+			<div class="center">
+				<div class="top">
+				
+				
+					<ul>
+						<li><a  href="#">本站业务</a></li>
+						<li><a href="#">博客</a></li>
+						<li><a href="#">论坛</a></li>
+						<li><a href="#">公告信息</a></li>
+					</ul>
+					<ul class="tuichu">
+						<li><a  href="#">退出</a></li>
+					</ul>
+					
+				</div>
+				<div class="hight"></div>
+				<div class="zx">
+					<div class="list">
+					<div class="xslisttltie">天学者’之《人生几何？？？？？？？？》</div>
+					<div class="hdk">
+						<!--<ul><li class="hdkli bg">正文列表</li><li class="hdkli">论坛评论</li><li class="hdkli">QQ群评论</li></ul>-->
+							<div class="clr"></div>
+								<div class="div">
+								<div class="clr"></div>
+									<div class="fenjuan">
+										<div class="fjtitle">‘天学者’之《人生几何？？？？？？？？》作品相关</div>
+										<div class="fenjuanbj">
+											<div class="fenjuanbj1">
+												<div class="fjzx"></div>
+												</div>
+														
+										</div>
+										<div class="fj">
+											<ul>
+												<li><a href="#">作者不得不说的话</a></li>
+												<li><a href="#">必看简介</a></li>
+												<li><a href="#">【解密金庸人物蕴含的天学理数】第一解：乔峰</a></li>
+												<li><a href="#">赋诗一首【良字诀】以祝读者朋友元宵节快乐 	</a></li>
+												<li><a href="#">【解密金庸人物蕴含的天学理数】第二解：平一指胡青牛</a></li>
+											
+											</ul>
+										</div>
+									
+									</div>
+									<div class="clr"></div>
+									<div class="fenjuan">
+										<div class="fjtitle">第一卷 血海枫林</div>
+										<div class="fenjuanbj">
+											<div class="fenjuanbj1">
+												<div class="fjzx"></div>
+												</div>
+											</div>
+										<div class="fj">
+											<ul>
+												<li><a href="#">前言</a></li>
+												<li><a href="#">第一章：封神塔异变</a></li>
+												<li><a href="#">第二章：智破景门阵</a></li>
+												<li><a href="#">第三章：不解之卦</a></li>
+												<li><a href="#">第四章： 迷魂阵</a></li>
+												<li><a href="#">第五章：雷火惊魂</a></li>
+												<li><a href="#">第六章： 她是何方神圣</a></li>
+												<li><a href="#">第七章：谈虎色变</a></li>
+												<li><a href="#">第八章：山般的巨尸</a></li>
+												<li><a href="#">第九章（上）：血战死门阵之鬼王出世</a></li>
+												<li><a href="#">第九章（下）：血战死门阵之七星奔雷真诀</a></li>
+												<li><a href="#">第十章：落迦仙境</a></li>
+												<li><a href="#">第十一章：小可爱的馈赠</a></li>
+												<li><a href="#">第十二章：神奇的说书人</a></li>
+												<li><a href="#">第十三章：何以解忧，唯有杜康。</a></li>
+												<li><a href="#">第十四章： 这次绝对正确</a></li>
+												<li><a href="#">第十五章：济公再世？</a></li>
+												<li><a href="#">第十六章：楚天一古松</a></li>
+												<li><a href="#">第十七章：突如其来的国际大战</a></li>
+												<li><a href="#">第十八章：该死的，每次总是握不到她的手</a></li>
+											</ul>
+										</div>
+																					
+									</div>
+									<div class="clr"></div>
+									<div class="fenjuan">
+										<div class="fjtitle">‘第二卷：庄子左传太阳行</div>
+										<div class="fenjuanbj">
+											<div class="fenjuanbj1">
+												<div class="fjzx"></div>
+												</div>
+													
+										</div>
+										<div class="fj">
+											<ul>
+												<li><a href="#">第十九章：真是坏了平日，没人信我今朝</a></li>
+												<li><a href="#">第二十章：天啊~~打雷劈死这群不会动脑筋的人吧</a></li>
+												<li><a href="#">第二十一章：轩辕斗魂？！</a></li>
+												<li><a href="#">第三章：不解之卦</a></li>
+												<li><a href="#">第四章： 迷魂阵</a></li>
+												<li><a href="#">第五章：雷火惊魂</a></li>
+												<li><a href="#">第六章： 她是何方神圣</a></li>
+												<li><a href="#">第七章：谈虎色变</a></li>
+												<li><a href="#">第八章：山般的巨尸</a></li>
+												<li><a href="#">第九章（上）：血战死门阵之鬼王出世</a></li>
+												<li><a href="#">第九章（下）：血战死门阵之七星奔雷真诀</a></li>
+												<li><a href="#">第十章：落迦仙境</a></li>
+												<li><a href="#">第十一章：小可爱的馈赠</a></li>
+												<li><a href="#">第十二章：神奇的说书人</a></li>
+												<li><a href="#">第十三章：何以解忧，唯有杜康。</a></li>
+												<li><a href="#">第十四章： 这次绝对正确</a></li>
+												<li><a href="#">第十五章：济公再世？</a></li>
+												<li><a href="#">第十六章：楚天一古松</a></li>
+												<li><a href="#">第十七章：突如其来的国际大战</a></li>
+												<li><a href="#">第十八章：该死的，每次总是握不到她的手</a></li>
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+								<!--<div class="div none">
+								第二个div内容
+								</div>
+								<div class="div none">
+								第三个div内容
+								</div>-->
+					</div>
+				</div>
+				
+			</div>
+			<div class="right">
+					<div class="touxiang"><img src="/upload/fm/dp.jpeg"></div>
+					<div class="right_menu"><a href="#">发表新作</a></div>
+					<div class="right_menu"><a href="#">我的收入</a></div>
+					<div class="right_menu"><a href="#">查看订阅者</a></div>
+					<div class="right_menu"><a href="#">QQ群管理</a></div>
+				</div>
+		</div>	
+    
+    	
+    
+    </div>
+</div>
+
+</body></html>

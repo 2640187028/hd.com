@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>主页</title>
+<style type="text/css">
+ 
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.main{ border-right:1px solid #cbcbcc; width:99.9% }
+.menu{ padding-left:30px; margin-bottom:10px; height:31px}
+.menu ul li {  float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+.menu ul li a{color:#6c635a;}
+.menu ul li.bg{ background:#c0cddd}
+img{ border:none}
+ul{ list-style:none}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.mydy{  margin-top:10px; border-left:none; border-right:none;}
+.title{ font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.title ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+.hdk{ font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.hdk ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+.wbnr{ padding:10px; padding-right:0px; font-size:14px; color:#333;}
+.hdknr{ padding:10px; padding-right:0px; font-size:14px; color:#333;}
+.wbk{ border:1px solid #e6e6e6; width:120px; height:35px; padding:10px; overflow:hidden; float:left; margin-left:55px; margin-bottom:10px;}
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); text-align:center; line-height:22px; }
+.dingyuebox a{color:#FFFFFF; display:block}
+.bg{background:#c0cddd}
+.jilu{border-left:none; border-right:none;}
+.none{ display:none}
+.wbk:hover{border:1px solid #FF9900;cursor:default }
+.wbtx{ width:35px; height:35px; float:left}
+.wbtx img{width:35px; height:35px;}
+.jbzl{ margin-left:10px; float:left; line-height:18px;}
+.xnr{ float:right; color:#FF6633}
+.jilu .none{ display:none}
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+.infobox{ width:98%; margin:0 auto; min-height:50px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infoleft{ width:100px; float:left; line-height:30px;}
+.inforight{  width:100%; float:left; margin-left:10px; line-height:30px;}
+.inforight span{ margin-right:20px;}
+.xflb{width:98%; margin:0 auto; height:50px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.xflb{ line-height:50px;}
+.qian{ color:#F37800; font-weight: bold}
+.shouru{ color:#53A000; font-weight: bold}
+.inforight .chengyuanlb a{ color:#3D9498}
+.fbqgg a{ color:#FF6600}
+.tianjiaqqqun{ width:80%; margin:0 auto}
+.tianjiaqqqun td{ height:30px;}
+.renshu input{ width:50px;}
+.cylb{ width:99%}
+.quntj input{ margin-left:50px; margin-top:20px;}
+.cytitle{font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC;}
+.cytitle .cytnr{ margin-bottom:10px;margin-left:30px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:14px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+.select{ width:200px;}
+input.subboom{  width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".mydy ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".mydy .wbnr:eq("+i+")").show().siblings(".mydy .wbnr").hide();
+		})
+	 })
+
+$('#daoru').click(function(){
+	document.txtpost.submit(); 
+
+})	
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+
+<div class="fabu">
+  <div class="fbt"><textarea class="fb"></textarea></div>
+  <div class="clr"></div>
+  
+  <div class="fban">
+  <div class="fbnn"><input type="button"  value="发送"/></div>
+  	<div class="ksrz">还能输入140字</div>
+  </div>
+  
+  <div class="fbgn">
+  	<div class="fblx">发表微博</div>
+  	<div class="fblx">QQ群公告</div>
+	<div class="fblx">达人公告</div>
+  </div>
+</div>
+<div class="mydy">
+	<div class="menu">
+			<ul>
+			<li><a href="<{spUrl c=qunmanage a=index s=$uid}>">我的群管理</a></li>
+			<li><a href="<{spUrl c=qunmanage a=add s=$uid}>">添加群成员</a></li>
+			<li class="bg"><a href="<{spUrl c=qunmanage a=xinqun s=$uid}>">添加新群</a></li>
+			</ul>
+		</div>
+
+	
+			
+	<div class="clr"></div>
+		<div class="wbnr">
+		
+			<div class="tianjiaqqqun">
+			
+					<table width="98%" border="0">
+  <form name="pqun" action="<{spUrl c=qunmanage a=xinqun_save}>" method="post">
+  <tr>
+  		<input type="hidden" name="uid" value="<{$uid}>" />
+    <td width="39%" align="right">新建群名称：</td>
+    <td colspan="2"><input type="text" name="qqgroup_name" /></td>
+	
+  </tr>
+  <tr>
+  
+    <td width="39%" align="right">QQ群号：</td>
+    <td colspan="2"><input type="text" name="qun_num" /></td>
+	
+  </tr>
+  <tr>
+  
+    <td width="39%" align="right">QQ群容量：</td>
+    <td colspan="2"><input type="text" name="qun_max" /> 人</td>
+	
+  </tr>
+ 
+  
+  <tr>
+    <td></td>
+    <td colspan="2" class="quntj"><input class='subboom' name="" type="submit" value="提交" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2"></td>
+  </tr>
+</table>
+
+		
+			
+			</div>
+			
+		</div>
+	</div>
+
+	
+</div>
+</form>
+</div>
+</body>
+</html>

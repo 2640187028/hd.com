@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+*{margin:0; padding:0; list-style:none; text-decoration:none}
+body{ background:#f3f6fb; width:100%;
+
+}
+.main{ border-right:1px solid #d7dee8; width:201px; height:2000px; padding-top:25px; }
+.face{ width:113px; border:1px solid #ced7e0; margin:0 auto; background:#fff;}
+.faceimg{ padding:3px;}
+.faceimg img{ width:107px; height:107px; }
+.name{ width:115px; margin:0 auto; color:#677b93;height:30px; margin-top:15px; position:relative}
+.super{ display:block; font-size:11px; position:absolute; right:2px; top:-4px; width:15px; height:12px; background:#ca0003; color:#fff; text-align:center; overflow:hidden}
+.juese{ margin-left:30px;_margin-left:20px;}
+.juese ul{ margin:0 auto; text-align:center}
+.juese ul li { float:left; margin-left:10px; width:25px; height:20px; overflow:hidden}
+.clr{ clear:both; height:0px; width:0px;}
+.menu { margin-top:20px; line-height:36px;}
+.menu ul li{ height:36px; text-align:right; padding-right:50px;}
+li.libg{ background:#e7ecf2}
+.menu ul li a{ color:#6a7179;}
+.bg{ background:#e7ecf2}
+-->
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#fabu').click(function(){
+        $(self.parent.frames["mainFrame"].$('.fabu').slideToggle('slow'));
+})
+if(<{$uid}> == '0')
+{
+    $(window.parent.document).find('#mainFrame').attr('src','<{spUrl c=author a=myworks}>');
+}
+$(".menu li").each(function(i){
+	
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			
+		})
+	 })
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+	<div class="face">
+		<div class="faceimg"><img src="<{$user_info.member_face}>" width="107" height="107" /></div>
+	</div>
+	<div class="name"><span style=" float:right; margin-right:14px; margin-top:5px;"><a href="<{spUrl c=xiaoxi a=index}>" target="mainFrame"><img src="/public/index/images/messege.gif" border="0" /></a>
+  <div class="super"><{$gg_num}></div></span><span><{$user_info.member_nickname}></span></div>
+	<div class="juese">
+		<ul>
+		<{foreach from=$user_info.mrole item=role}>
+		<{if $role.member_role == '注册用户'}>
+		<li><img src="/public/index/images/huiyuan.gif" alt="注册用户" title="注册用户" /></li>
+		<{/if}>
+		<{if $role.member_role == '网络达人'}>
+		<li><img src="/public/index/images/daren.gif"  alt="网络达人" title="网络达人"/></li>
+		<{/if}>
+		<{if $role.member_role == '合作伙伴'}>
+		<li><img src="/public/index/images/hezuo.png" alt="合作伙伴" title="合作伙伴"/></li>
+		<{/if}>
+		<{if $role.member_role == 'QQ群主'}>
+		<li><img src="/public/index/images/qqqunzu.png" alt="QQ群主" title="QQ群主" /></li>
+		<{/if}>
+		
+		<{/foreach}>
+		
+		</ul>
+	</div>
+	<div class="clr"></div>
+	<div class="menu">
+	<ul>
+    <{if $uid != 0}>
+	<li class="bg"><a href="<{spUrl c=center a=main}>" target="mainFrame">我的订阅</a></li>
+    <{/if}>
+    <{foreach from=$user_info.mrole item=role}>
+        <{if $exist != '1'}>
+		<{if $role.member_role == '合作伙伴' || $role.member_role == '志愿者'}>
+    	<{$exist = '1'}>
+        <li><a href="<{spUrl c=author a=myworks}>" target="mainFrame">作品管理</a></li>
+		<{/if}>
+        <{/if}>
+		<{if $role.member_role == 'QQ群主'}>
+		<li><a href="<{spUrl c=qunmanage a=index s=$user_info.user_id}>" target="mainFrame">QQ群管理</a></li>
+		<{/if}>
+		<{if $role.member_role == '网络达人'}>
+        <li><a href="#" id='fabu'>信息发布</a></li>
+    	<li><a href="<{spUrl c=center a=viewdingyue}>" target="mainFrame">查看订阅者</a></li>
+		<{/if}>
+    <{/foreach}>	
+		
+		<!--<li><a href="<{spUrl c=center a=volunteer}>" target='mainFrame' title='工作内容：帮作者整理QQ精选'>申请志愿者</a></li>-->
+		<{if $uid != 0}>
+		<li><a href="<{spUrl c=center a=user_set}>" target='mainFrame'>设置</a></li>
+        <{/if}>
+    </ul>
+	</div>
+</div>
+</body>
+</html>

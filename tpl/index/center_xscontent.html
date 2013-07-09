@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+
+<title>内容中心</title>
+
+<style>
+
+*{margin:0; padding:0}
+
+a{ text-decoration:none}
+
+.clr{clear:both;margin:0;padding:0;height:0;font- size:0}
+
+img{ border:none}
+
+ul{ list-style:none}
+
+.main{ }
+
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+
+.ksrz{ float:right; font-size:14px; margin-top:10px; margin-right:10px;}
+
+.fbnn{ float:right;}
+
+.fbnn input{ width:100px; height:35px;}
+
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+
+.zx{ width:99%; background:#FFFFFF; float:left; padding-bottom:30px;}
+
+.img{ padding:5px; border:1px solid #cdcdd0; width:130px; height:169px; float:left}
+
+.img:hover {border:1px solid #006600;}
+
+.img img{ width:130px; height:169px; }
+
+.list{ margin:0 auto; margin-top:20px; width:80% }
+
+.imgtitle{ width:130px; line-height:30px; text-align:center; font-size:14px}
+
+.imgtitle a{ color:#0083df}
+
+.imgtitle a:hover{ text-decoration:underline}
+
+.block{ width:94%; height:200px; border:1px solid #cbcbcc; margin:0 auto; margin-top:20px; }
+
+.bpad{ padding:10px;position:relative}
+
+.xslisttltie{ margin:0 auto; text-align:center; font-size:18px; color:#009900; font-weight:bold; width:80%; height:40px;}
+
+
+
+#re_top
+
+{
+
+position:fixed;
+
+width:30px;
+
+height:20px;
+
+font-weight:bold;
+
+bottom: 35px;
+
+padding:5px;
+
+cursor: pointer;
+
+right:0px;
+
+_position: absolute;
+
+_right: auto;
+
+background:#666;
+
+color:#fff;
+
+border:1px solid;
+
+
+
+}
+
+
+
+/*分卷*/
+
+.fenjuan{ width:100%; margin-top:30px; padding-left:10px;}
+
+.fjtitle{ line-height:30px; font-weight:bold; color:#993300; text-align:center}
+
+.fenjuanbj1{border-bottom:1px #c5c3c1 solid; height:1px; padding-top:8px;}
+
+.fenjuanbj{ border-bottom:1px #e7e5e2 solid;height:10px;}
+
+
+
+.fjzx{ width:9px; height:7px; margin:0 auto; background:url(/public/index/images/fenjuan.jpg) no-repeat}
+
+.fj{ margin-top:10px;}
+
+.fj ul li{ float:left; width:200px; text-align:left; margin-left:15px; height:auto; min-height:50px; line-height:20px;}
+
+.fj ul li a{ color:#333; }
+
+.fj ul li a:hover{ color:#FF9900}
+
+.zz{ line-height:30px; font-size:14px; text-align:center}
+
+.fj{ line-height:2;font-size:16px; text-indent:2em}<br>
+
+br{ line-height:0.5;display:block}
+
+.daoxiaodh{ font-size:16px}
+
+.daoxiaodh a{ color:#333}
+
+.shangxiaye{ margin:0 auto; width:100%; text-align:center; margin-top:30px;}
+
+.shangxiaye span{ width:300px; margin-right:30px;}
+
+.shangxiaye a{ color:#0066FF}
+
+.liuyankuang textarea{width:800px;height:150px;resize:none;margin:30px 0;}
+
+.submit{width:98px; height:35px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none}
+
+.bianji{ margin:0 auto; text-align:center; width:200px; display:block}
+
+#art_del{padding:20px;display:none;width:250px;height:80px;border:2px solid #06c;position:absolute;background:white;top:300px;left:380px;position:fixed;font-size:18px;color:red;}
+
+#art_del button{margin:20px;border:1px solid;width:80px;height:20px;}
+
+</style>
+
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+
+<script type="text/javascript" src="/public/simple_ueditor/editor1_config.js"></script>
+
+<script type="text/javascript" src="/public/simple_ueditor/editor_all_min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+var height = $('.zx').height();
+
+$('.right').css('height',height+30);
+
+$('#del').click(function(){
+
+$.post('<{spUrl c=author a=fj_del}>',{'fj_id':id},function(re_val){
+
+if(re_val == 'yes')
+
+{
+
+alert('删除成功');
+
+window.location.href = '<{spUrl c=author a=manage xs_id=$xs_id}>';
+
+}
+
+})
+
+})
+
+$('.art_del').click(function(even){
+
+even.preventDefault();
+
+var id = $(this).attr('title');
+
+$('#art_del').css('display','block');
+
+$('#a_del_close').click(function(){
+
+$('#art_del').slideUp();
+
+})
+
+$('#a_del').click(function(){
+
+$.post('<{spUrl c=author a=art_del}>',{'content_id':id},function(re_val){
+
+if(re_val == 'yes')
+
+{
+
+alert('删除成功');
+
+history.go(-1);
+
+//window.location.href = '<{spUrl c=center a=xslist xs_id=$xs_id}>';
+
+}
+
+})
+
+})
+
+})
+
+})
+
+
+
+
+
+</script>
+
+
+
+</head>
+
+
+
+<body>
+
+<a name='top'></a>
+
+<div class="main">
+
+<div class="fabu">
+
+<div class="fbt"><textarea class="fb"></textarea></div>
+
+<div class="clr"></div>
+
+
+
+<div class="fban">
+
+<div class="fbnn"><input type="button"  value="发送"/></div>
+
+<div class="ksrz">还能输入140字</div>
+
+</div>
+
+
+
+<div class="fbgn">
+
+<div class="fblx">发表微博</div>
+
+<div class="fblx">QQ群公告</div>
+
+<div class="fblx">达人公告</div>
+
+</div>
+
+</div>
+
+<div class="zx">
+
+<div class="list">
+
+<div class="daoxiaodh"><a href="<{spUrl c=center a=xslist xs_id=$content.xs_fj.xs_id}>"><{$xs_name}></a>-&gt; <a><{$content.xs_fj.list_name}></a> -&gt;<{$content.title}></div>
+
+<div class="fenjuan">
+
+<div class="fjtitle"><{$content.title}></div><{if $xs_userid == $member_id}><span class="bianji"><a href="<{spUrl c=author a=art_edit content_id=$wzid}>">[编辑]</a> <a class='art_del' title='<{$wzid}>' href="#">[删除]</a></span><{/if}>
+
+<div class="zz">作者：<{$content.author}>&nbsp;&nbsp;&nbsp;&nbsp;更新：<{$content.update_time}></div>
+
+<div class="fenjuanbj">
+
+<div class="fenjuanbj1">
+
+<div class="fjzx"></div>
+
+</div>
+
+
+
+</div>
+
+<div class="fj">
+
+<p>
+
+<{$content.content}>
+
+</p>
+
+</div>
+
+
+
+<div class="shangxiaye">
+
+<{if $shangcontent.content_id !=''}>
+
+<span><a href="<{spUrl c=center a=xscontent contentid=$shangcontent.content_id}>">上一篇：<{$shangcontent.title|truncate:'15':'..'}></a></span>	<{/if}>				<span><a href="<{spUrl c=center a=xslist xs_id=$content.xs_fj.xs_id}>">返回目录</a></span>
+
+<{if $nextcontent.content_id !=''}>
+
+<span><a href="<{spUrl c=center a=xscontent contentid=$nextcontent.content_id}>">下一章：<{$nextcontent.title|truncate:'15':'..'}></a></span>		<{/if}>					</div>
+
+<div class="liuyankuang"><br /><p style='color:red'>给作者留言：</p><form action='<{spUrl c=center a=xsaddcomment}>' method='post'><input name="xs_id" type="hidden" value="<{$content.xs_fj.xs_id}>"><input name="content_id" type="hidden" value="<{$content.content_id}>"><textarea name='c_content'></textarea><br><input class="submit" type='submit' value='提交' /></form></div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+<a href='#top' id='re_top'>TOP</a>
+
+<div id='art_del'>
+
+你确认要删除该章节吗？<br />
+
+<button id='a_del'>删除</button>
+
+<button id='a_del_close'>取消</button>
+
+</div>
+
+</body></html>

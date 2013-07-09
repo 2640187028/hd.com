@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>内容中心</title>
+<style>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+
+img{ border:none}
+ul{ list-style:none}
+body{background-image:url(/public/index/images/bg3.jpg) ;
+background-repeat:no-repeat;
+background-attachment:fixed;}
+body{ font-size:14px;color:#333; z-index:-1;_background-attachment:fixed; _background-image:url(about:blank);}
+.main{ position:absolute; left:50%; top:53px; width:80%; height:auto; background:#48a1c9; margin-left:-40%; z-index:1; padding-top:10px; padding-bottom:10px;}
+.center{ position:relative}
+.regbg{ margin:0 auto; width:98%;  background:#48a1c9;}
+.padding{ padding:0px;  background:#FFFFFF}
+.top{ position:fixed; margin-left:0px; margin-top:0;left:0px; top:0px; width:100%; height:53px; background:#eff2f4; border-bottom:1px #cbcbcc solid; z-index:999; }
+.top ul{ margin-top:10px; margin-left:14%;}
+.top ul li{ float:left; display:block; width:80px; height:30px;  line-height:30px; text-align:center;  margin-left:30px;}
+.top ul li a{display:block; width:82px; height:34px; line-height:34px; color:#423009;background:#e5e5e5; background:url(/public/index/images/dhbj.gif)}
+.top ul li a:hover{ background:#FFFFFF; color:#3399FF;background:url(/public/index/images/hdmbgbaise.gif)}
+.top ul li a.hover{ background:#FFFFFF; color:#3399FF;background:url(/public/index/images/hdmbgbaise.gif)}
+.right{z-index:999; width:16%;  background:#eef2f5; float:right; border-left:1px #cbcbcc solid; }
+.zx{ width:83%;height:1776px; background:#FFFFFF; float:left; padding-bottom:30px;}
+.img{ padding:5px; border:1px solid #cdcdd0; width:15%; height:169px; float:left; }
+.img:hover {border:1px solid #006600;}
+.img img{ width:100%; height:169px; }
+.list{ margin:0 auto; margin-top:20px; }
+.imgtitle{ width:130px; line-height:30px; text-align:center; font-size:12px}
+.imgtitle a{ color:#0083df}
+.imgtitle a:hover{ text-decoration:underline}
+.touxiang{ width:106px; height:106px; margin:0 auto; margin-top:10px; border:1px solid #cbcbcc; background:#FFFFFF; padding:5px; margin-bottom:20px;}
+.touxiang img{width:106px; height:106px;}
+.block{ width:94%; height:200px; border:1px solid #cbcbcc; margin:0 auto; margin-top:20px; }
+.bpad{ padding:10px;position:relative}
+.nr{ height:180px; width:80%; float:right;overflow:hidden; margin-right:2%; position:relative; }
+.title{  text-align:center; font-weight:bold; color:#666; line-height:30px;}
+.title a{ color:#666;}
+.title a:hover{ color:#FF9900;}
+.content{ }
+.content p{ line-height:30px; font-size:12px;  text-indent:2em}
+.yuedu{ position:absolute; top:165px; right:0%; font-size:12px}
+.yuedu a{ color:#009900}
+.yuedu a:hover{color:#FF9900;}
+.zz{ font-size:12px; text-align:center; line-height:30px;}
+.zz span{ margin-right:30px;}
+.right_menu{ width:113px; height:36px; font-size:14px; line-height:36px; text-align:left; background:url(/public/index/images/right_menu.jpg) no-repeat; margin-left:-1px;  }
+.right_menu:hover{background:url(/public/index/images/right_menu_hover.jpg);}
+.right_menu a{ color:#00477b; display:block; margin-left:30px;}
+.tuichu{ position:absolute; right:10%; top:1px;}
+.guanli{ position:absolute;right:1px; font-size:12px}
+.guanli a{ color:#FF9933}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var height = $('.zx').height();
+	$('.right').css('height',height+30);
+	
+});
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});
+$("ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".div:eq("+i+")").show().siblings(".div").hide();
+		})
+	 })
+}
+ 
+	
+</script>
+
+</head>
+
+<body>
+<div class="main">
+	<div class="regbg">
+	
+    	<div class="padding">		
+			<div class="center">
+				
+				<div class="hight"></div>
+				<div class="zx">
+					<div class="list">
+						
+								<div class="block">
+									<div class="bpad">
+									<div class="nr">
+										<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者’之《人生几何？？？？？？？？》</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									
+									</div>
+								</div>
+							
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="block">
+									<div class="bpad">
+									<div class="img"><a href="#"><img src="/upload/fm/txz.jpg" border="0"></a></div>
+									<div class="nr">
+									<div class="guanli"><a href="#">[管理]</a></div>
+										<div class="title"><a href="#">天学者</a></div>
+										<div class="zz"><span>作者：轩辕斗魂 </span><span>更新：2013-04-17</span><span>阅读数：1542100</span></div>
+										<div class="content"><p>《天学者》是一本讲述汉字如何生成构造的书.并以此为基础解密华夏五千年来的文化奥秘。亦是解释易经为什么能算卦。　也解释中医为什么能治病的。咒语阵法的奥妙。十大名剑为什么那样命名。本书以详解汉字结构为基础，为你还原华夏五千年来真正符合天道自然的国学文化，以轻松幽默的情节，让你在开怀一笑之余深刻体会天学的...</p>
+										<div class="yuedu"><a href="#">[立即阅读]</a></div>
+										</div>
+									</div>
+									</div>
+								</div>
+								
+								
+						</ul>
+					</div>
+				</div>
+				<div class="right">
+					<div class="touxiang"><img src="/upload/fm/dp.jpeg"></div>
+					<div class="right_menu"><a href="#">发表新作</a></div>
+					<div class="right_menu"><a href="#">我的收入</a></div>
+					<div class="right_menu"><a href="#">查看订阅者</a></div>
+					<div class="right_menu"><a href="#">QQ群管理</a></div>
+				</div>
+			</div>
+		</div>	
+    
+    	
+    
+    </div>
+</div>
+
+</body></html>

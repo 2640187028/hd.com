@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+*{margin:0; padding:0; list-style:none; text-decoration:none}
+body{ background:#f3f6fb; width:100%;
+
+}
+.main{ border-bottom:1px solid #d7dee8; height:54px; }
+ul.left li{ float:left; background:url(/public/index/images/dhbj.gif); width:82px; height:34px; line-height:30px; text-align:center; margin-right:15px;}
+ul.left{ float:left; margin-top:10px; margin-left:10px;}
+a{ color:#FFFFFF; display:block; line-height:34px;}
+ul.right li{float:left; background:url(/public/index/images/dhbj.gif); width:82px; height:34px; line-height:30px; text-align:center; margin-right:15px;}
+ul.right{ float:right;margin-top:10px;}
+-->
+</style>
+</head>
+
+<body>
+		<div class="main">
+		<ul class="left">
+			<li><a href="<{spUrl c=basic a=logout}>">退 出</a></li>
+			
+		</ul>
+		<ul class="right">
+			<{if $uid != 0}>
+			<li><a href="<{spUrl c=center a=main}>" target="mainFrame">首 页</a></li>
+			<{else}>
+			<li><a href="<{spUrl c=author a=myworks}>" target="mainFrame">首 页</a></li>
+			<{/if}>
+		</ul>
+	</div>
+</body>
+</html>

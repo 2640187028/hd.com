@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>内容中心</title>
+<style>
+body{}
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.clr{clear:both;margin:0;padding:0;height:0;font- size:0}
+img{ border:none}
+ul{ list-style:none}
+.main{}
+.zx{ width:99%; float:left; padding-bottom:30px;}
+.img{ padding:5px; border:1px solid #cdcdd0; width:130px; height:169px; float:left}
+.img:hover {border:1px solid #006600;}
+.img img{ width:130px; height:169px; }
+.list{ margin:0 auto; margin-top:20px;background:#fff;   width:90%; padding-top:10px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:14px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+
+.block{ width:94%; height:200px; border:1px solid #cbcbcc; margin:0 auto; margin-top:20px; }
+.bpad{ padding:10px;position:relative}
+.xslisttltie{ margin:0 auto; text-align:center; font-size:18px; color:#009900; font-weight:bold; margin-top:30px; width:99%; height:40px;}
+.hdk{border-bottom:1px solid #97CAFD; height:30px; width:99%; margin:0 auto; background:#fff }
+
+/*滑动门*/
+*{ margin:0; padding:0; font-size:14px;}
+.hdk ul{ height:40px;}
+.hdk ul li.hdkli{ font-size:16px; list-style:none; float:left;cursor:pointer; width:100px; height:30px; line-height:30px; text-align:center; color:#666}
+.hdk ul li.hdkli.bg{ background-color:#CDE6FE; color:#333; border:1px solid  #97CAFD; border-bottom:none}
+.hdk .div{  text-align:center; width:100%;}
+.hdk .none{ display:none}
+.dw{}
+/*分卷*/
+.fenjuan{  width:90%; margin:0 auto; padding-left:10px; background:#fff; height:auto;}
+.fjtitle{ line-height:30px; font-weight:bold; color:#993300; margin-top:30px; font-size:16px;}
+.fenjuanbj1{border-bottom:1px #c5c3c1 solid; height:1px; padding-top:8px;}
+.fenjuanbj{ border-bottom:1px #e7e5e2 solid;height:10px;}
+.fjzx{ width:9px; height:7px; margin:0 auto; background:url(/public/index/images/fenjuan.jpg) no-repeat}
+.fj{ margin-top:10px;background:#009933; clear:both; }
+.fj ul{background:#fff}
+.fj ul li{ background:#fff}
+.fj ul li{ float:left; width:260px; text-align:left; margin-left:15px; height:auto; min-height:50px; line-height:20px;}
+.fj ul li a{ color:#333; font-size:14px; }
+.fj ul li a:hover{ color:#FF9900}
+
+.infobox{ width:98%; margin:0 auto; border:1px solid #e6e6e6; margin-top:10px;background:#fff}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infobox:hover{border:1px solid #FF9900; cursor:default}
+.rdtx{ margin:0 auto; width:50px; height:50px;}
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin:0 auto; margin-top:10px; text-align:center; line-height:22px; }
+.dingyuebox a{color:#FFFFFF}
+.inforight{ width:98%;}
+.darenname{ font-size:14px;margin-bottom:10px; margin-top:10px;}
+.wangyoutitle{ color:#CC9900}
+.zuozhetitle{ color:#6699FF}
+.infocontent{ line-height:20px; color:#462c00; text-align:left;  text-indent:2em}
+.infoshuxin{ line-height:20px; border-top:1px #CCCCCC solid; margin-top:10px;}
+.infohui{ color:#666; margin-left:10px; margin-right:10px;}
+.infotime{ margin-left:10px}
+.infoshuxinhuifu{line-height:20px;  margin-top:10px;}
+.huifubox{ height:35px; position:relative}
+.huifubox .huifu{ height:35px; width:90%;resize:none; text-align:left; margin-left:-100px;}
+.hftijiao{ height:35px; position:absolute; right:25px;}
+.hftijiao input{height:35px; width:50px;}
+.wytwnr{ float:left; text-indent:2em; width:100%;}
+.wyhf{ float:left;width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin-top:10px; margin-left:20px; text-align:center; line-height:22px; }
+.wyhf a{color:#FFFFFF; display:block}
+.wbxz{width:150px;margin:0 auto;font-size:14px;color:#06c;}
+.wbxz a:hover{color:red;}
+.esp{color:#06c;font-weight:bold;}
+.yidu{border:1px solid;width:80px;height:20px;margin-right:20px;padding:5px;color:#666;}
+.yidu:hover{color:red;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+//$(".hdk ul li").each(function(i){
+//var height = $('.zx').height();
+//	$('.main').css('height',height+30);
+//		$(this).click(function(){
+//			$(this).addClass("bg").siblings().removeClass("bg");
+//			$(".hdk .div:eq("+i+")").show().siblings(".hdk .div").hide();
+//		})
+//	 })
+//$(".cjhfbox").each(function(i){	 
+//		$(this).click(function(){
+//	$(".infoshuxinhuifu:eq("+i+")").slideToggle('fast');
+//		})
+//	})
+//});
+    $(self.parent.frames["leftFrame"].$('body').load('<{spUrl c=center a=left}>'));
+    $('.yidu').click(function(even){
+        even.preventDefault();
+        var url = $(this).attr('href');  
+        tip = $(this);
+        $.post(url,function(re_val){
+            if(re_val == 'yes')
+            {
+                tip.parent().parent().parent().parent().slideUp('slow');
+                $(self.parent.frames["leftFrame"].$('body').load('<{spUrl c=center a=left}>'));
+            }else{
+                alert(re_val);
+            }
+        });
+    })
+})
+</script>
+
+</head>
+
+<body>
+<div class="main">
+<{include file='fabu.html'}>
+	<div class="zx">
+					<div class="list">
+					
+                    
+					<div class="hdk">
+						<ul><li class="hdkli bg">公告消息</li></ul>
+							<div class="clr"></div>
+							<table width="80%" border="0">
+  <tr>
+    <td>发送人</td>
+    <td>消息类型</td>
+    <td>内容</td>
+    <td>时间</td>
+  </tr>
+   <{foreach from=$gg item=g}>
+  <tr>
+  <{if $g['daren_id'] != ''}>
+    <td>来自：<{$g['author']}></td>
+    <td>达人公告</td>
+	<{else}>
+	<td>来自：<{$g['qq_name']}>(<{$g['qq_num']}>)<{$g['author']}></td>
+    <td>QQ群公告</td>
+	 <{/if}>
+    <td><{$g['content']}></td>
+    <td><{$g['posttime']|date_format:"%Y-%m-%d %H:%M:%S"}></td>
+  </tr>
+   <{/foreach}>
+</table>
+                           
+								<div class="div">
+								    
+									<div class="infobox">
+										<div class="rdpanding">
+										
+
+											<div class="inforight">
+                                                <{if $g['daren_id'] != ''}>
+												<div class="darenname wangyoutitle"><!--<a class='yidu' href='<{spUrl c=xiaoxi a=tj type=dr id=$g['id']}>'>标注为已读</a>-->消息类型:达人公告<span class="infotime"><{$g['posttime']|date_format:"%Y-%m-%d %H:%M:%S"}></span>&nbsp;&nbsp;<span class="infofrom">来自:达人(<span class='esp'><{$g['author']}></span>)</span></div>
+                                                <{else}>
+                                                <div class="darenname wangyoutitle"><!--<a class='yidu' href='<{spUrl c=xiaoxi a=tj type=qq id=$g['id']}>'>标注为已读</a>-->消息类型:QQ群公告<span class="infotime"><{$g['posttime']|date_format:"%Y-%m-%d %H:%M:%S"}></span>&nbsp;&nbsp;<span class="infofrom">来自：<{$g['qq_name']}>(<{$g['qq_num']}>)<span class='esp'><{$g['author']}></span></span></div>
+                                                <{/if}>
+                                                <div class="infocontent"><div class="wytwnr"><{$g['content']}></div>
+												</div>
+												<div class="clr"></div>
+											</div>
+										</div>
+									</div>	
+                                    											
+									</div>
+                                   
+					</div>
+				</div>
+				
+
+			</div>
+</div>
+</body></html>

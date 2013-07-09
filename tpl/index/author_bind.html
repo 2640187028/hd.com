@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>绑定作者</title>
+<style type="text/css">
+*{margin:0; padding:0; list-style:none; text-decoration:none;font-size:14px;}
+.main{ padding:30px;width:500px;margin:0 auto;}
+.a_bind{display:block;float:left;width:93px; height:31px;color:#6c635a; background:#e7ecf2; font-size:14px;line-height:20px;text-align:center;margin-left:100px;margin-top:20px;line-height:31px; text-align:center;}
+.xianmu{margin:10px;}
+.xmm{display:block;width:80px;text-align:right;float:left;}
+.xmc select{display:block;width:150px;}
+</style>
+</head>
+<body>
+<div class="main">
+<form action='<{spUrl c=author a=bind_do}>' method='post'>
+    <div class='xianmu'><span class='xmm'>书名：</span>
+        <span class='xmc'>
+        <select name='xs_id' >
+            <{foreach from=$xsinfo item=xs}>
+                <option value='<{$xs.xs_id}>'><{$xs.xs_name}></option>
+            <{/foreach}>
+        </select>
+        </span>
+    </div>
+    <div class='xianmu'><span class='xmm'>绑定给：</span>
+        <span  class='xmc'>
+            <select name='user_id' >
+            <{foreach from=$all_author item=author}>
+                <{if $author.user_id != 0}>
+                <option value='<{$author.user_id}>'><{$author.user_detail.member_nickname}></option>
+                <{/if}>
+            <{/foreach}>
+            </select>
+        </span>
+    </div>
+    <div><input class='a_bind' type='submit' value='绑定' /></div>
+</form>
+<div class="clr"></div>
+</div>
+</body>
+</html>

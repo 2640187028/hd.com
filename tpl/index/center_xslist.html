@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+
+<title>内容中心</title>
+
+<style type="text/css">
+
+<!--
+
+*{margin:0; padding:0; list-style:none; text-decoration:none}
+
+#main{ padding:30px; padding-top:10px;}
+
+.left{ width:10%; float:left}
+
+.img{ width:105px; height:105px; border:1px solid #e6e6e6;text-align:center; background:#f7f7f7; margin:0 auto}
+
+.img img{ width:74px; height:98px; margin-top:4px;}
+
+.title{font-size:14px; width:105px; text-align:center; margin:0 auto; margin-top:10px;}
+
+.title a{color:#000000}
+
+.bc{ font-size:14px; color:#a2a2a2; margin-top:10px; margin:0 auto; text-align:center; margin-left:-10px; width:130px; color:#4794c2}
+
+.bc a{color:#4794c2}
+
+.right{ margin-left:30px; width:85%; float:left; }
+
+.clr{ clear:both; width:0px; height:0px;}
+
+.menu{ padding-left:0px; margin-bottom:30px; height:31px}
+
+.menu ul li {  float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+
+.menu ul li.bg{ background:#c0cddd}
+
+.xslist{ padding-left:40px;}
+
+.none{ display:none}
+
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+
+.ksrz{ float:right; font-size:14px; margin-top:10px; margin-right:10px;}
+
+.fbnn{ float:right;}
+
+.fbnn input{ width:100px; height:35px;}
+
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+
+
+
+/*小说列表*/
+
+.fjtitle{ padding-left:15px; font-size:14px; font-weight:bold; color:#000000;margin:30px 0; background:url(/public/index/images/fj.gif) left center no-repeat}
+
+.xslist ul li{ font-size:14px; float:left; margin-right:20px;min-height:70px; line-height:20px;width:170px;  }
+
+.xslist ul li a{ color:#000000; text-decoration:underline; font-size:14px;}
+
+.boot{ height:1px; border-bottom:1px solid #e8e8ea; }
+
+.zpjs{line-height:30px;font-size:14px;margin-bottom:10px; display:none}
+
+
+
+.infobox{ width:98%; margin:0 auto; border:1px solid #e6e6e6; margin-top:10px;background:#fff}
+
+.rdpanding{ padding:10px 2% 10px 3.5%}
+
+.infobox:hover{border:1px solid #FF9900; cursor:default}
+
+.rdtx{ margin:0 auto; width:50px; height:50px;}
+
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin:0 auto; margin-top:10px; text-align:center; line-height:22px; }
+
+.dingyuebox a{color:#FFFFFF}
+
+.inforight{ width:98%;}
+
+.darenname{ font-size:14px;margin-bottom:10px; margin-top:10px;}
+
+.wangyoutitle{ color:#CC9900}
+
+.zuozhetitle{ color:#6699FF}
+
+.infocontent{ line-height:20px; color:#462c00; text-align:left;  text-indent:2em}
+
+.infoshuxin{ line-height:20px; border-top:1px #CCCCCC solid; margin-top:10px;}
+
+.infohui{ color:#666; margin-left:10px; margin-right:10px;}
+
+.infotime{ margin-left:10px}
+
+.infoshuxinhuifu{line-height:20px;  margin-top:10px;}
+
+.huifubox{ height:35px; position:relative}
+
+.huifubox .huifu{ height:35px; width:90%;resize:none; text-align:left; margin-left:-100px;}
+
+.hftijiao{ height:35px; position:absolute; right:25px;}
+
+.hftijiao input{height:35px; width:50px;}
+
+.wytwnr{ float:left; text-indent:2em; width:100%;}
+
+.wyhf{ float:left;width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); margin-top:10px; margin-left:20px; text-align:center; line-height:22px; }
+
+.wyhf a{color:#FFFFFF; display:block}
+
+.wbxz{width:150px;margin:0 auto;font-size:14px;color:#06c;}
+
+.wbxz a:hover{color:red;}
+
+#qqltjx{padding:20px;background-color:white;border:1px solid #456;width:100%;display:none;position:absolute;top:0px;}
+
+#qqltjx input,#sub_close{}
+
+.l_ltjx{line-height:16px;font-size:14px;}
+
+#sub_add{margin-top:20px;margin-left:20%;}
+
+#simple_ueditor{width:95%;margin:0 auto;}
+
+.subboom{ font-size:14px;  width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none; margin-top:10px;}
+
+span.subboom{display:block; float:right; margin-right:330px;line-height:33px;font-size:14px; text-align:center}
+
+input.subboom{  width:98px; height:33px; background:url(/public/index/images/anliubg.gif) no-repeat; border:none; margin-left:320px; margin-top:10px;line-height:33px;font-size:14px; text-align:center}
+
+input.srk{ width:252px; height:32px; border:1px solid #eeeeee; margin-top:25px; line-height:32px;}
+
+textarea.con{border:1px solid #eeeeee;  width:60%}
+
+.ghfm{ text-align:center; font-size:12px; margin-left:5px;}
+
+.ghfm a{ color:#3366FF}
+.content_search input{float:left;margin-bottom:20px;}
+.s_content{text-indent:25px;color:#999;width:193px;height:30px;line-height:30px;border:none;background:url(/public/index/images/sousuobg.gif) left top no-repeat;}
+.s_button{font-size:16px;color:white;width:80px;height:30px;background:#00CAD0;border:none;}
+</style>
+
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+
+<script src="/public/index/js/thickbox-compressed.js" type="text/javascript"></script>
+
+<link href="/public/index/css/thickbox.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/public/simple_ueditor/editor_config.js"></script>
+
+<script type="text/javascript" src="/public/simple_ueditor/editor_all_min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$(".menu ul li").each(function(i){
+
+		$(this).click(function(){
+
+			$(this).addClass("bg").siblings().removeClass("bg");
+
+			$("#main .div:eq("+i+")").show().siblings("#main .div").hide();
+
+		})
+
+	 })
+
+$(".cjhfbox").each(function(i){	 
+
+		$(this).click(function(){
+
+	$(".infoshuxinhuifu:eq("+i+")").slideToggle('fast');
+
+		})
+
+	})
+
+ $('#v_addnew').click(function(){
+
+    $('#qqltjx').slideToggle('slow');       
+
+ })
+
+ $('#sub_close').click(function(){
+
+    $('#qqltjx').slideUp('slow');
+
+ })
+
+ $(".fjtitlejs").toggle(
+
+  function () {
+
+    $('.zpjs').slideDown('1000');
+
+    $('.zktip').html('[关闭]');
+
+  },
+
+  function () {
+
+    $('.zpjs').slideUp('1000');
+
+    $('.zktip').html('[展开]');
+
+  }
+
+  );
+  $('.s_content').click(function(){
+    if($(this).attr('value') == '请输入要搜索的内容')
+    {
+        $(this).attr('value','');
+    }
+    $(this).keydown(function(){
+        $(this).css('color','#000');
+    })
+  })
+  $('.s_content').blur(function(){
+    if($(this).attr('value') == '')
+    {
+        $(this).attr('value','请输入要搜索的内容');
+        $(this).css('color','#999');
+    }
+  })
+
+});
+
+
+
+</script>
+
+
+
+</head>
+
+
+
+<body>
+
+<{include file='fabu.html'}>
+
+<div id="main">
+
+		<div class="menu">
+
+			<ul>
+
+				<li class="bg">正文</li>
+
+				<li>回音壁</li>
+
+				<li>QQ群精选</li>
+
+			</ul>
+
+		</div>
+
+		<div class="div">
+
+		<div class="left">
+
+			<div class="img"><img src="<{$xsimg}>"  /></div>
+
+			<div class="title"><a href="#"><{$xs_name}></a></div>
+            
+            <{if $is_author == 'yes'}>
+
+			 <div class="ghfm"><a href='<{spUrl c=author a=change_fm TB_iframe=true height=400 width=550}>' class="thickbox">[更换封面]</a></div>
+
+            <{/if}>
+
+		</div>
+
+		<div class="right">
+
+		  <div class="clr"></div>
+
+		  <div class="xslist">
+          
+          <div class='content_search'><form action='<{spUrl c=center a=content_search}>' method='post'><input type='text' class='s_content' name='s_keyword' value='请输入要搜索的内容'/><input type='hidden' name='xs_id' value='<{$xs_id}>' /><input type='submit' class='s_button' value='搜索' /></form></div>            
+
+			<div class="clr"></div>
+            <div class="fjtitle fjtitlejs">作品简介<span style="font-weight:normal; color:#3366FF" class='zktip'>[展开]</span></div>
+
+            <div class='zpjs'><{$xs_js}></div>
+
+			<div class="clr"></div>
+
+			<div class="boot"></div>
+
+		</div>
+
+		
+
+		 <{foreach from=$parent item=par}>
+
+		 <div class="clr"></div>
+
+		<div class="xslist">
+
+			<div class="fjtitle"><{$par[1]}></div>
+
+			<ul>
+
+			<{foreach from=$result item=re}>
+
+			<{if $re['parent_id'] == $par[0]}>
+
+			<li><a href="<{spUrl c=center a=xscontent contentid=$re['id']}>"><{$re['list_name']}></a></li>
+
+			<{/if}>
+
+			 <{/foreach}>
+
+			</ul>
+
+			<div class="clr"></div>
+
+			<div class="boot"></div>
+
+		</div>
+
+		 <{/foreach}>
+
+		 </div>
+
+		</div>
+
+		
+
+		<div class="div none">
+
+								<{foreach from=$comments item=com}>
+
+												<{if $com.view == 1}>
+
+												<{if $com.reply_id==0}>
+
+		                                     <div class="infobox">
+
+												<div class="rdpanding">
+
+												
+
+													<div class="inforight">
+
+														<div class="darenname wangyoutitle">网友: <{$com.user.member_nickname}><span class="infotime"><{$com.post_time}></span> <span class="infohui">来自</span><span class="infofrom"><{$com.where_from}></span></div>
+
+														<div class="infocontent"><{$com.c_content}></div>
+
+														<{foreach from=$comments item=red}>
+
+														<{if $red.reply_id>0}>
+
+															<{if $red.reply_id == $com.c_id}>
+
+														<div class="infoshuxin">
+
+															<div class="darenname zuozhetitle">作者:<{$red.user.member_nickname}><span class="infotime"><{$red.post_time}></span></div>
+
+															<div class="infocontent"><{$red.c_content}></div>
+
+														</div>
+
+															<{/if}>
+
+														<{/if}>
+
+														
+
+														<{/foreach}>
+
+													</div>
+
+												</div>
+
+												</div>
+
+												<{/if}>
+
+												<{/if}>
+
+												<{/foreach}>								
+
+										</div>
+
+									
+
+		
+
+		
+
+		<div class="div none">
+
+                                   <{if $is_volunt == '1'}>
+
+                                    <button class="subboom" id='v_addnew'>增加精选</button>
+
+                                   <{/if}>
+
+								<{foreach from=$qqcomments item=qqcc}>
+
+									
+
+									<div class="infobox">
+
+												<div class="rdpanding">
+
+
+
+													<div class="inforight">
+
+														<div class="darenname wangyoutitle">由网友: <{$qqcc.qqc_name}>&nbsp;&nbsp;整理<span class="infotime"> <{$qqcc.qqc_posttime}></span> <span class="infohui">来自</span><span class="infofrom">群号：<{$qqcc.qqc_qunid}></span></div>
+
+														<div class="infocontent"><div class="wytwnr"><{$qqcc.qqc_content}></div>
+
+														</div>
+
+														<div class="clr"></div>
+
+														
+
+													</div>
+
+												</div>
+
+												</div>	
+
+									<{/foreach}>
+
+												
+
+									</div>
+
+	</div>
+
+<div id='qqltjx'>
+
+    <form action='<{spUrl c=center a=add_ltjx}>' method='post'>
+
+        <div style="margin-left:30px;">QQ群号:<select class="select" name="qqc_qunid">
+
+	<{foreach from=$qun item=qqun}>
+
+      <option value="<{$qqun.qun_num}>"><{$qqun.qun_num}></option>
+
+	<{/foreach}>
+
+	</select></div>
+
+       <span style=" display:block;margin-left:30px; margin-top:10px; margin-bottom:10px;">QQ精选内容：</span><script type="text/plain" class="con" id="simple_ueditor" name='qqc_content'></script>
+
+                    <script type="text/javascript">
+
+                        UE.getEditor('simple_ueditor')
+
+                    </script><br /><br />
+
+        <input type='hidden' name='xs_id' value='<{$xs_id}>' />
+
+        <input class="subboom" type='submit' value='增加'><span class="subboom" id='sub_close'>关闭</span>
+
+    </form>
+
+    
+
+</div>
+
+</body></html>

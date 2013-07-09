@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
+<title>用户登陆</title>
+<style type='text/css'>
+*{margin:0; padding:0}
+a{ text-decoration:none}
+img{ border:none}
+body{ font-size:12px;color:#f2f4f0; overflow:hidden; z-index:-1}
+.main{ position:absolute; left:50%; top:45%; width:80%; height:400px; background:#48a1c9; margin-top:-200px; margin-left:-40%; z-index:1; padding-top:10px;}
+.loginbg{ margin:0 auto; width:98%; height:390px; background:#FFF; position:relative}
+.login{ float:right; margin-right:10px; _margin-right:5px;}
+/*滑动门效果*/
+ul li{font-size:14px; list-style:none; float:left; background:url(/public/index/images/hdmbg.gif); cursor:pointer; width:149px; height:30px; line-height:30px; text-align:center; margin-top:10px;border:1px solid #9da39b;border-bottom: none; font-weight:bold}
+ul li.bg{ background-color:#fff;background:none; border-bottom: none;color:#63a013;}
+ul li.left{ border-right:none}
+ul li.right{ border-left:none}
+.name{ text-align:left; margin-left:30px;}
+.input{ margin-top:-5px;}
+.input input{ height:25px; width:250px;}
+.mima{ margin-top:10px;}
+.zcmm{ margin-left:10px;}
+.zcmm a{ color:#106eb8}
+.sm{ margin-top:10px;}
+.submit{ margin-top:10px;}
+.submit input{ width:80px; height:40px;}
+.clr{ clear:both;}
+.div{width:298px; height:338px; color:#444940;  line-height:30px; text-align:center; border:1px solid #9da39b; border-top:none}
+.none{ display:none}
+.hdp{ position:absolute; top:10px; left:10px;}
+input.yzm{ width:100px; margin-top:30px; margin-left:-30px;}
+.yzmdiv{ position:relative}
+#verifycode{ position:absolute; top:35px; left:200px;_left:100px;}
+#ajax_tip{color:#f3314c;display:block;height:40px;line-height:40px;}
+</style>
+
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#loginname').focus();
+	$("body").append("<div id='main_bg'/>");
+	$("#main_bg").append("<img src='/public/index/images/bg3.jpg' id='bigpic'>");
+	 $(".main").fadeTo("fast", 0.83);
+	cover();
+	$(window).resize(function(){
+		cover();
+	});	
+    $('#loginname,#member_pwd,.yzm').click(function(){
+            $('#ajax_tip').html('');
+    })
+    $('#auto_login').click(function(){
+        if($(this).attr('checked') == 'checked')
+        {
+            $(this).attr('value','1');
+        }else{
+            $(this).attr('value','0');
+        }
+    })
+    $('#submit').click(function(even){
+        even.preventDefault();
+        $.post('<{spUrl c=basic a=login}>',$('#login_form').serialize(),function(val){
+            if(val == 'yes')
+            {
+                window.location.href = "<{spUrl c=center a=index}>";
+            }else{
+            $('#ajax_tip').html(val);
+            $('#yzm').val('');
+            $('#verifycode img').click();
+            }
+        });
+    })                  
+		  
+});
+function cover(){
+	var win_width = $(window).width();
+	var win_height = $(window).height();
+	$("#bigpic").attr({width:win_width,height:win_height});
+$("ul li").each(function(i){
+		$(this).click(function(){
+			$(this).addClass("bg").siblings().removeClass("bg");
+			$(".div:eq("+i+")").show().siblings(".div").hide();
+		})
+	 })
+}
+</script>
+
+
+</head>
+
+<body>
+<div class="main">
+	<div class="loginbg">
+    <div class="hdp">
+    	
+    </div>
+    <div class="login">
+    	<ul><li class="bg left">个人登陆</li><li class="right"><!--企业登陆--></li></ul>
+			<div class="clr"></div>
+			<div class="div">
+				<span id='ajax_tip'></span>                            
+                <form id='login_form' method="post">
+                <div class="name">Email/用户ID</div>
+                <div class="input"><input id="loginname" name="loginname" type="text" /></div>
+                <div class="name mima">密码：</div>
+                <div class="input"><input name="member_pwd" type="password" /></div>
+                <div class="input yzmdiv"><span style="position:absolute; top:30px; left:30px;_left:-80px">验证码：</span><input id='yzm' class="yzm" name="yzm" type="text" /><span id='verifycode'><img src='<{spUrl c=basic a=_vcode}>' width='60px' height='20px' onClick="this.src='/index.php?c=basic&a=_vcode&'+Math.random()" /></span></div>
+                <div class="name sm"><span style="line-height:30px; margin-right:5px;"><input id="auto_login" name="auto_login" type="checkbox"></span>一周内自动登陆<span class="zcmm"><a href="<{spUrl c=basic a=findpwd}>">忘记密码？</a></span><span class="zcmm"><a  href="<{spUrl c=basic a=reg}>">立即注册</a></span></div>
+                <div class="submit"><input id="submit" type="submit" value="登陆"></div>
+              </form>
+			</div>
+			<div class="div none">
+				第二个div内容
+			</div>
+    
+    </div>
+    	
+    
+    </div>
+</div>
+
+</body></html>

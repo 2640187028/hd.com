@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>主页</title>
+<style type="text/css">
+ 
+*{margin:0; padding:0}
+a{ text-decoration:none}
+.main{ border-right:1px solid #cbcbcc; width:99.9% }
+.menu{ padding-left:30px; margin-bottom:10px; height:31px}
+.menu ul li {  float:left; width:93px; height:31px; margin-right:10px; line-height:31px; text-align:center; color:#6c635a; background:#e7ecf2; font-size:14px}
+.menu ul li a{color:#6c635a;}
+.menu ul li.bg{ background:#c0cddd}
+img{ border:none}
+ul{ list-style:none}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.mydy{  margin-top:10px; border-left:none; border-right:none;}
+.title{ font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.title ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+.hdk{ font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC; border-left:none;border-right:none; }
+.hdk ul li { float:left; width:80px; text-align:center; font-size:14px;  }
+.wbnr{ padding:10px; padding-right:0px; font-size:14px; color:#333;}
+.hdknr{ padding:10px; padding-right:0px; font-size:14px; color:#333;}
+.wbk{ border:1px solid #e6e6e6; width:120px; height:35px; padding:10px; overflow:hidden; float:left; margin-left:55px; margin-bottom:10px;}
+.dingyuebox{ width:46px; height:22px; background:url(/public/index/images/dingyuebg.gif); text-align:center; line-height:22px; }
+.dingyuebox a{color:#FFFFFF; display:block}
+.bg{background:#c0cddd}
+.jilu{border-left:none; border-right:none;}
+.none{ display:none}
+.wbk:hover{border:1px solid #FF9900;cursor:default }
+.wbtx{ width:35px; height:35px; float:left}
+.wbtx img{width:35px; height:35px;}
+.jbzl{ margin-left:10px; float:left; line-height:18px;}
+.xnr{ float:right; color:#FF6633}
+.jilu .none{ display:none}
+.fblx{ float:left; margin-left:30px; font-size:14px; line-height:35px;}
+.infobox{ width:98%; margin:0 auto; min-height:50px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.rdpanding{ padding:10px 2% 10px 3.5%}
+.infoleft{ width:100px; float:left; line-height:30px;}
+.inforight{  width:100%; float:left; margin-left:10px; line-height:30px;}
+.inforight span{ margin-right:20px;}
+.xflb{width:98%; margin:0 auto; height:50px; border:1px solid #e6e6e6; margin-bottom:10px;}
+.xflb{ line-height:50px;}
+.qian{ color:#F37800; font-weight: bold}
+.shouru{ color:#53A000; font-weight: bold}
+.inforight .chengyuanlb a{ color:#3D9498}
+.fbqgg a{ color:#FF6600}
+.tianjiaqqqun{ width:80%; margin:0 auto}
+.tianjiaqqqun td{ height:30px;}
+.renshu input{ width:50px;}
+.cylb{ width:99%}
+.quntj input{ margin-left:50px; margin-top:20px;}
+.cytitle{font-size:14px; height:30px; line-height:30px; background:url(/public/index/images/titlebg.jpg) repeat-x; padding-left:0px; border:1px solid #CCCCCC;}
+.cytitle .cytnr{ margin-bottom:10px;margin-left:30px;}
+.fabu{ height:162px; margin:0 auto; background:url(/public/index/images/sa_07.gif) repeat-x; position:relative; display:none}
+.fbt{ width:95%; position:relative; top:30px; margin:0 auto}
+.fb{  height:60px; width:98%;overflow:hidden; padding:10px;resize:none;}
+.clr{ clear:both; margin:0; padding:0; height:0px; width:0px;}
+.fbgn{ margin-top:35px;height:30px; width:250px; float:right; border-right:1px dotted #666}
+.fban{ width:200px;margin-top:35px;height:30px; float:right; margin-right:2%;}
+.ksrz{ float:right; font-size:14px; margin-top:10px; margin-right:10px;}
+.fbnn{ float:right;}
+.fbnn input{ width:100px; height:35px;}
+
+
+.infoshuxinhuifu{line-height:20px;  margin-top:0px; margin-bottom:10px; }
+.huifubox{ height:35px; margin:0 auto; width:100%; text-align:center}
+.huifubox .aff_content{ height:35px; width:85%;resize:none; margin-left:-40px; text-align:left;}
+.hftijiao{ height:35px; position:absolute; right:25px;}
+.hftijiao input{height:35px; width:50px;}
+</style>
+<script type="text/javascript" src="/public/index/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+//$(".mydy ul li").each(function(i){
+//		$(this).click(function(){
+//			$(this).addClass("bg").siblings().removeClass("bg");
+//			$(".mydy .wbnr:eq("+i+")").show().siblings(".mydy .wbnr").hide();
+//		})
+//	 })
+$(".fbqgg").each(function(i){	 
+		$(this).click(function(){
+	$(".infoshuxinhuifu:eq("+i+")").slideToggle('fast');
+		})
+	})
+
+$(".hftj").each(function(i){
+		$(this).click(function(even){
+		even.preventDefault();
+					var qqgroup_id = $("input.qqgroup_id:eq("+i+")").val();
+                    var qqgroup_name = $("input.qqgroup_name:eq("+i+")").val();
+                    var qqgroup_num = $("input.qqgroup_num:eq("+i+")").val();
+					//var xs_id = $("input.xs_id:eq("+i+")").val();
+					var aff_content = $("input.aff_content:eq("+i+")").val();
+                    if(aff_content == '')
+                    {
+                        alert('公告内容不得为空');
+                    }else{
+					$.post('<{spUrl c=qunmanage a=qqgroup_affiche}>',{'aff_content':aff_content,'qqgroup_id':qqgroup_id,'qqgroup_name':qqgroup_name,'qqgroup_num':qqgroup_num},function(fh){
+						if(fh=='success'){
+						alert('公告消息发布成功！');
+						$(".huifubox:eq("+i+") input.tijiaonr").attr("value","");
+                        $(self.parent.frames["leftFrame"].$('body').load('<{spUrl c=center a=left}>'));
+						}
+					})
+                    }
+		})
+	})
+
+
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+<{include file='fabu.html'}>
+<div class="mydy">
+	<div class="menu">
+			<ul>
+			<li class="bg"><a href="<{spUrl c=qunmanage a=index s=$uid}>">我的群管理</a></li>
+			<li><a href="<{spUrl c=qunmanage a=add s=$uid}>">添加群成员</a></li>
+			<li><a href="<{spUrl c=qunmanage a=xinqun s=$uid}>">添加新群</a></li>
+			</ul>
+		</div>
+	<div class="wbnr">
+	<{$i=0}>
+	<{foreach from=$qun item=q}>
+	<div class="infobox">
+		<div class="rdpanding">
+			<div class="inforight">
+				<table width="100%" border="0">
+  <tr>
+    <td width="20%">群号：<{$q.qun_num}></td>
+    <td width="20%">群名：<{$q.qqgroup_name}></td>
+    <td width="20%">可容纳： <{$q.qun_max}>人</td>
+	
+    <td width="10%">已加入：<{$rs.$i}><{$i=$i+1}>人</td>
+	
+    <td align="center"><span class="chengyuanlb"><a href="<{spUrl c=qunmanage a=renlb q=$q.qqgroup_id}>">成员列表</a></span></td>
+    <td><span class="fbqgg"><a href="#">发布群公告</a></span></td>
+  </tr>
+</table>
+
+		  </div>
+				
+			</div>
+			<div class="clr"></div>
+					<div class="infoshuxinhuifu none">
+									<form  class="hfrom" method="post">
+															
+															<div class="huifubox">
+															<input class="qqgroup_id" name="qqgroup_id" type="hidden" value="<{$q.qqgroup_id}>" />
+                                                            <input class="qqgroup_num" name="qqgroup_num" type="hidden" value="<{$q.qun_num}>" />
+															<input class="qqgroup_name" name="qqgroup_name" type="hidden" value="<{$q.qqgroup_name}>" />
+                                                            <input class="tijiaonr aff_content" name="aff_content" type="text"/>
+															<span class="hftijiao"><input class="hftj" name="" type="submit" value="提交">
+															</span>
+															</div>
+															</form>
+					</div>
+		
+		
+		
+		</div>
+	<{/foreach}>	
+	</div>
+	
+			
+	<div class="clr"></div>
+		
+	</div>
+
+	
+</div>
+</div>
+</body>
+</html>
